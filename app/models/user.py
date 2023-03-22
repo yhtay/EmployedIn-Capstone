@@ -27,7 +27,7 @@ class User(db.Model, UserMixin):
 
     # Relationships
     posts = db.relationship("Post", back_populates='user')
-    # comments = db.relationship("Comment", back_populates='user')
+    comments = db.relationship("Comment", back_populates='user')
 
 
     @property
@@ -45,9 +45,9 @@ class User(db.Model, UserMixin):
     def get_posts(self):
         return [ post.to_dict() for post in self.posts ]
 
-    # @property
-    # def get_comments(self):
-    #     return [ comment.to_dict() for comment in self.comments ]
+    @property
+    def get_comments(self):
+        return [ comment.to_dict() for comment in self.comments ]
 
     def to_dict(self):
         return {
@@ -62,6 +62,6 @@ class User(db.Model, UserMixin):
             'city': self.city,
             'state': self.state,
             'country': self.country,
-            'posts': self.get_posts,
+            # 'posts': self.get_posts,
             # 'comments': self.get_comments
         }

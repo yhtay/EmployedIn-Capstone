@@ -10,7 +10,7 @@ class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     post_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('posts.id'), ondelete='CASCADE'), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id'), ondelete='CASCADE'), nullable=False)
-    description = db.Column(db.String(255), nullable=False)
+    comment = db.Column(db.String(255), nullable=False)
     created_at =  db.Column(db.DateTime, default=datetime.utcnow())
     updated_at = db.Column(db.DateTime, default=datetime.utcnow())
 
@@ -21,7 +21,7 @@ class Comment(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
-            'description': self.description,
+            'comment': self.comment,
             'created_at': self.created_at,
             'updated_at': self.updated_at
         }

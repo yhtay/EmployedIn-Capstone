@@ -1,0 +1,11 @@
+.splash-login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+}
+
+.splashpage-form-image-div {
+    display: flex;
+    flex-direction: row;
+    
+}

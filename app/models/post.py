@@ -26,6 +26,7 @@ class Post(db.Model):
         return {
             'id': self.id,
             'post': self.post,
+            'user_id': self.user_id,
             # 'comments': self.get_comments,
             'created_at': self.created_at,
             'updated_at': self.updated_at

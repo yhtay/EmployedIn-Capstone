@@ -1,0 +1,37 @@
+.delete-post-modal {
+    padding: 15px;
+    height: 200px;
+    width: 350px;
+}
+
+.button-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    padding: 15px;
+    gap: 5px;
+    border-radius: 10px;
+}
+
+
+
+.cancel-button {
+    height: 30px;
+    width: 70px;
+    border: solid 2px white;
+    border-radius: 30px;
+    background-color: rgb(78, 78, 78);
+    color: rgb(255, 255, 255);
+    font-weight: 900;
+}
+
+.confirm-button {
+    height: 30px;
+    width: 70px;
+    border: none;
+    border-radius: 30px;
+    background-color: rgb(11,101,194);
+    color: black;
+    font-weight: 900;
+
+}

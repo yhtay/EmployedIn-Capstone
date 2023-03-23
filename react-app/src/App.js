@@ -24,7 +24,7 @@ function App() {
           <Route exact path="/"><SplashLoginPage /></Route>
           <Route path="/login" ><LoginFormPage /></Route>
           <Route path="/signup"><SignupFormPage /></Route>
-          <Route path="/posts"><PostsPage /></Route>
+          <Route path="/feed"><PostsPage /></Route>
         </Switch>
       )}
     </>

@@ -7,5 +7,33 @@
 .splashpage-form-image-div {
     display: flex;
     flex-direction: row;
-    
+
+}
+
+.sign-in-button {
+    width: 140px;
+    height: 30px;
+    background-color: rgb(11,101,194);
+    color: white;
+    border: none;
+    border-radius: 60px;
+    font: bolder
+}
+
+.sign-in-button:hover {
+    background-color: rgb(4, 78, 152);
+}
+
+.demo-user-button {
+    width: 140px;
+    height: 30px;
+    background-color: white;
+    color: rgb(64,64,64);
+    border: 0.5px solid rgb(64,64,64);
+    border-radius: 60px;
+    font: bolder
+}
+
+.demo-user-button:hover {
+    background-color: rgb(237, 237, 237);
 }

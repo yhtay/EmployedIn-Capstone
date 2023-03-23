@@ -8,12 +8,17 @@ import Navigation from "./components/Navigation";
 import SplashLoginPage from "./components/SplashLoginPage/SplashLoginPage";
 import PostsPage from "./components/Posts/PostComponent";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
+import { thunkGetAllComments } from "./store/comments";
+
+
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     dispatch(authenticate()).then(() => setIsLoaded(true));
+    dispatch(thunkGetAllComments())
+
   }, [dispatch]);
 
   return (

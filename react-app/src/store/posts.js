@@ -77,7 +77,7 @@ export const thunkDeletePost = (id) => async (dispatch) => {
         method: "DELETE"
     })
     if (response.ok) {
-        let post = await response.json()
+        const post = await response.json()
         dispatch(actionDeletePost(id))
         return post
     }

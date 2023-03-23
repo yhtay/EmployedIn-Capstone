@@ -1,0 +1,8 @@
+.individual-comment-div {
+    display: flex;
+    justify-content: space-between;
+    border: 0.5px solid rgb(220, 220, 220);
+    border-radius: 20px;
+    margin: 5px;
+    padding: 0px 10px;
+}

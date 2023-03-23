@@ -7,9 +7,9 @@ import SignupFormModal from "../SignupFormModal";
 import { useHistory, Redirect } from "react-router-dom";
 
 
-function ProfileButton(user) {
+function ProfileButton() {
   const dispatch = useDispatch();
-  // const user = useSelector(state => state.session.user)
+  const user = useSelector(state => state.session.user)
 
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
@@ -35,10 +35,9 @@ function ProfileButton(user) {
   }, [showMenu]);
 
 
-  const handleLogout = (e) => {
+  const handleLogout = async (e) => {
     e.preventDefault();
-    console.log("HISTORY NOT WORKING?")
-    dispatch(logout())
+    await dispatch(logout())
     history.push('/')
 
 

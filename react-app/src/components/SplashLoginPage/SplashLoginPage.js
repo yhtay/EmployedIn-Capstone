@@ -15,7 +15,7 @@ export default function SplashLoginPage() {
 	const [password, setPassword] = useState("");
 	const [errors, setErrors] = useState([]);
 
-	if (sessionUser) return <Redirect to="/posts" />;
+	if (sessionUser) return <Redirect to="/feed" />;
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -24,6 +24,12 @@ export default function SplashLoginPage() {
 		setErrors(data);
 		}
 	};
+
+	const handleDemoSubmit = async (e) => {
+		e.preventDefault()
+		await dispatch(login('messi10@baca.com', 'Messi10'))
+		return <Redirect to="/feed" />
+	}
 
 	return (
 	<div>
@@ -60,6 +66,12 @@ export default function SplashLoginPage() {
 					style={{ width: "130px"}}
 					type="submit">
 					Log In</button>
+				<button
+					style={{ width: "130px"}}
+					onClick={handleDemoSubmit}
+					>
+					Demo User
+				</button>
 			</form>
 			<img
 				style={{ height: "500px", width: "500px" }}

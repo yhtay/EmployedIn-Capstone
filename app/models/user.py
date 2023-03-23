@@ -44,11 +44,11 @@ class User(db.Model, UserMixin):
 
     @property
     def get_posts(self):
-        return jsonify([ post.to_dict() for post in self.posts ])
+        return [ post.to_dict() for post in self.posts ]
 
     @property
     def get_comments(self):
-        return jsonify([ comment.to_dict() for comment in self.comments ])
+        return [ comment.to_dict() for comment in self.comments ]
 
     def to_dict(self):
         return {

@@ -21,14 +21,14 @@ class Post(db.Model):
 
     @property
     def get_comments(self):
-        return jsonify([ comment.to_dict() for comment in self.comments ])
+        return [ comment.to_dict() for comment in self.comments ]
 
     def to_dict(self):
         return {
             'id': self.id,
             'post': self.post,
             'user_id': self.user_id,
-            # 'comments': self.get_comments,
+            'comments': self.get_comments,
             'created_at': self.created_at,
             'updated_at': self.updated_at
         }

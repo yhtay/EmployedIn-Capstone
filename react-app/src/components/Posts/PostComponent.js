@@ -57,6 +57,7 @@ export default function PostsPage() {
                                     />
                                 }
                             </div>
+                            {/* <div>{user.first_name}</div> */}
                             <div>{post.post}</div>
                         </div>
                     ))

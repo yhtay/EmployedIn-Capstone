@@ -21,6 +21,5 @@ def validation_errors_to_error_messages(validation_errors):
 def get_all_comments():
     """ Route to get all comments """
     all_comments = Comment.query.all()
-    return all_comments.to_dict()
-
-
+    comment_dicts = [ comment.to_dict() for comment in all_comments]
+    return comment_dicts, 200

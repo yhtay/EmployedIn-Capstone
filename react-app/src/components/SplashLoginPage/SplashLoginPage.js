@@ -63,11 +63,12 @@ export default function SplashLoginPage() {
 				/>
 			</div>
 				<button
-					style={{ width: "130px"}}
+
+					className="sign-in-button"
 					type="submit">
-					Log In</button>
+					Sign In</button>
 				<button
-					style={{ width: "130px"}}
+					className="demo-user-button"
 					onClick={handleDemoSubmit}
 					>
 					Demo User

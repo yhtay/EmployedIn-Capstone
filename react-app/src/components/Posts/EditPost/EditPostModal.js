@@ -9,8 +9,6 @@ import "../CreatePost/CreatePostModal.css"
 
 export default function EditPostModal({ postToEdit }) {
 
-    console.log("postToEdit", postToEdit)
-
     const dispatch = useDispatch()
     const history = useHistory()
     const { closeModal } = useModal()

@@ -1,3 +1,4 @@
+from flask import jsonify
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from datetime import datetime
 
@@ -20,7 +21,7 @@ class Post(db.Model):
 
     @property
     def get_comments(self):
-        return [ comment.to_dict() for comment in self.comments ]
+        return jsonify([ comment.to_dict() for comment in self.comments ])
 
     def to_dict(self):
         return {

@@ -1,3 +1,4 @@
+from flask import jsonify
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
@@ -43,11 +44,11 @@ class User(db.Model, UserMixin):
 
     @property
     def get_posts(self):
-        return [ post.to_dict() for post in self.posts ]
+        return jsonify([ post.to_dict() for post in self.posts ])
 
     @property
     def get_comments(self):
-        return [ comment.to_dict() for comment in self.comments ]
+        return jsonify([ comment.to_dict() for comment in self.comments ])
 
     def to_dict(self):
         return {

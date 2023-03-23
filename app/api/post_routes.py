@@ -47,7 +47,7 @@ def create_post():
         )
         db.session.add(new_post)
         db.session.commit()
-        return new_post.to_dict()
+        return jsonify(new_post.to_dict())
 
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
@@ -60,7 +60,6 @@ def edit_post(id):
         Edit a Post for logged in user
     """
     post_by_id = Post.query.get(id)
-    print("post_by_id =========> ", post_by_id)
 
     # Check if post exist
     if not post_by_id:

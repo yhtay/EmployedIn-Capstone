@@ -2,29 +2,23 @@ import { useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router-dom"
 import { useModal } from "../../../context/Modal"
-import { thunkDeletePost } from "../../../store/posts"
+import { thunkDeletePost, thunkGetAllPosts } from "../../../store/posts"
 import "./DeletePostModal.css"
 
 
 
 export default function DeletePostModal({ postToDelete }) {
 
-
-
     const dispatch = useDispatch()
     const { closeModal } = useModal()
-
-
-
 
     const handleSubmit = async (e) => {
         e.preventDefault()
 
         await dispatch(thunkDeletePost(postToDelete.id))
+            .then(() => dispatch(thunkGetAllPosts()))
             .then(closeModal)
-
     }
-
 
     return (
         <div className='delete-post-modal'>

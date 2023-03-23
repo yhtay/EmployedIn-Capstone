@@ -25,7 +25,7 @@ def get_all_posts():
     """ Route to get all posts """
     all_posts = Post.query.all()
     post_dicts = [ post.to_dict() for post in all_posts ]
-    return jsonify(post_dicts), 200
+    return post_dicts, 200
 
 
 # Create a post
@@ -110,26 +110,78 @@ def get_comment_by_post_id(id):
     if post_by_id != current_user.id:
         return {'errors': validation_errors_to_error_messages("Unauthorized User")}, 403
 
-    comments = post_by_id.comments
-    return comments, 200
+    comments = [ comment.to_dict() for comment in post_by_id.comments]
+    return jsonify(comments), 200
 
 
 
 # Create Comment based on Post Id
 @post_routes.route('/<int:id>/comments', methods=['POST'])
 @login_required
-def create_comment():
+def create_comment(id):
     """
         Create Comment on Post for logged in user
     """
-    post_by_id = Post.query.get(id)
-    # Check if post exist
-    if not post_by_id:
+    form = CommentForm()
+    # Get csrf_token from the request cookie
+    # form mannually to validat_on_submit
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        new_comment = Comment (
+            user_id = current_user.id,
+            post_id = id,
+            comment = form.data['comment'],
+            # image = form.data['image']
+        )
+        db.session.add(new_comment)
+        db.session.commit()
+        return new_comment.to_dict()
+
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+# Edit Comment
+@post_routes.route('/<int:post_id>/comments/<int:comment_id>', methods=['PUT'])
+@login_required
+def edit_comment(post_id, comment_id):
+    """
+        Edit a Comment based on post
+    """
+    comment_by_id = Comment.query.get(comment_id)
+
+    if not comment_by_id:
         return {'errors': validation_errors_to_error_messages("Post Not Found")}, 404
 
-    # Check if authorized
-    if post_by_id != current_user.id:
+    if comment_by_id.user_id != current_user.id:
         return {'errors': validation_errors_to_error_messages("Unauthroized to Edit")}, 403
 
     form = CommentForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit:
+        comment_by_id.comment = form.comment.data
+        comment_by_id.comment = form.comment.data
+
+        db.session.commit()
+        return comment_by_id.to_dict(), 200
+
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+
+
+# Delete Comment
+@post_routes.route('/<int:post_id>/comments/<int:comment_id>', methods=['DELETE'])
+@login_required
+def delete_comment(post_id, comment_id):
+    """
+        Delete a comment based on post
+    """
+    comment_to_delete = Comment.query.get(comment_id)
+
+    if not comment_to_delete:
+        return {'errors': validation_errors_to_error_messages("Post Not Found")}, 404
+
+    if comment_to_delete.user_id != current_user.id:
+        return {'errors': validation_errors_to_error_messages("Unauthroized to Edit")}, 403
+
+    db.session.delete(comment_to_delete)
+    db.session.commit()
+    return {'message': "Successfully deleted the post"}, 200

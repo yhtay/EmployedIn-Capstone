@@ -10,6 +10,8 @@ import EditPostModal from "./EditPost/EditPostModal";
 import DeletePostModal from "./DeletePost/DeletePostModal";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPencil } from '@fortawesome/free-solid-svg-icons'
+import CommentsComponent from "../Comments/CommentsComponent";
+import CreateComment from "../Comments/CreateComment/CreateComment";
 
 
 
@@ -19,6 +21,7 @@ export default function PostsPage() {
     const dispatch = useDispatch();
     const allPosts = useSelector(state => state.posts.allPosts)
     const user = useSelector(state => state.session.user)
+    const allComments = useSelector(state => state.comments.allComments)
 
     useEffect(() => {
         dispatch(thunkGetAllPosts())
@@ -27,9 +30,7 @@ export default function PostsPage() {
     if (!allPosts) return null
     if (!user) return null
 
-    console.log('user: ', user)
     const postsArr = Object.values(allPosts)
-    // console.log(postsArr)
 
     return(
         <div>
@@ -59,6 +60,8 @@ export default function PostsPage() {
                             </div>
                             {/* <div>{user.first_name}</div> */}
                             <div>{post.post}</div>
+                            <CommentsComponent postId={post.id} userId={user} />
+                            <CreateComment postId={post.id} />
                         </div>
                     ))
                 }

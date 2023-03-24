@@ -17,7 +17,7 @@ class Post(db.Model):
 
     # Relationships
     user = db.relationship("User", back_populates='posts')
-    comments = db.relationship("Comment", back_populates='post')
+    comments = db.relationship("Comment", back_populates='post', cascade="all, delete")
 
     @property
     def get_comments(self):

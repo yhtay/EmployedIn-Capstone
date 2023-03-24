@@ -27,8 +27,8 @@ class User(db.Model, UserMixin):
     updated_at = db.Column(db.DateTime, default=datetime.utcnow())
 
     # Relationships
-    posts = db.relationship("Post", back_populates='user')
-    comments = db.relationship("Comment", back_populates='user')
+    posts = db.relationship("Post", back_populates='user', cascade="all, delete")
+    comments = db.relationship("Comment", back_populates='user', cascade="all, delete")
 
 
     @property

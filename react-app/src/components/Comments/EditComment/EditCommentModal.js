@@ -6,7 +6,6 @@ import { thunkEditComment } from "../../../store/comments"
 
 
 
-
 export default function EditCommentModal({ postId, commentToEdit }) {
 
     const dispatch = useDispatch()

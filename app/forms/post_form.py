@@ -6,5 +6,5 @@ from app.models import Post
 
 class PostForm(FlaskForm):
     post = TextAreaField('Post',
-        validators=[DataRequired(), Length(max=500, message="Maximum 500 characters allowed")])
+        validators=[DataRequired(), Length(min=1, max=500, message="Post must be between 1 and 500 characters")])
     image = StringField('Image')

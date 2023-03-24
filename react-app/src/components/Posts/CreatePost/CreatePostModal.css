@@ -9,8 +9,14 @@
 .inputs-div {
     display: flex;
     flex-direction: column;
-    align-items: end;
+
     width: inherit;
+
+}
+
+.post-errors-div li {
+    color: red;
+    list-style: none;
 
 }
 
@@ -28,5 +34,5 @@
     background-color: rgb(78, 78, 78);
     color: rgb(179, 179, 179);
     font-weight: 900;
-
+    align-self: flex-end;
 }

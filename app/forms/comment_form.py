@@ -6,5 +6,5 @@ from app.models import Comment
 
 class CommentForm(FlaskForm):
     comment = TextAreaField('Comment',
-        validators=[DataRequired(), Length(max=500, message="Maximum 500 characters allowed")])
+        validators=[DataRequired(), Length(min=1, max=30, message="Comments must be between 1 and 30 characters")])
     # image = StringField('Image')

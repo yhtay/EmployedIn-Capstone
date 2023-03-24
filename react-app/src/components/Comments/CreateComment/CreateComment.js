@@ -15,6 +15,18 @@ export default function CreateComment({ postId }) {
     const [errors, setErrors] = useState([]);
     const [hasSubmitted, setHasSubmitted] = useState(false)
 
+    useEffect(() => {
+        const newErrors = []
+
+        if (comment.length < 1 || comment.length > 30) newErrors.push("Comments must be between 1 and 30 characters")
+
+        setErrors(newErrors)
+        return () => {
+            setErrors([])
+            setHasSubmitted(false)
+        }
+    }, [comment])
+
     const handleCommentSubmit = async (e) => {
         e.preventDefault()
 
@@ -32,11 +44,20 @@ export default function CreateComment({ postId }) {
                 if (data && data.errors) setErrors(data.errors)
             })
         setComment("")
+        setHasSubmitted(false)
     }
 
     return (
         <div>
             <form onSubmit={handleCommentSubmit}>
+                {
+                    hasSubmitted && errors.length > 0 &&
+                        errors.map((error, idx) => (
+                            <li
+                                style={{ color: "red", listStyle: "none" }}
+                                key={idx}>{error}</li>
+                        ))
+                }
                 <input
                     placeholder="Add a comment..."
                     value={comment}

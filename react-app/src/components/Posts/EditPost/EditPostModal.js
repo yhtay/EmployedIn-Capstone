@@ -19,6 +19,16 @@ export default function EditPostModal({ postToEdit }) {
     const [errors, setErrors] = useState([]);
     const [hasSubmitted, setHasSubmitted] = useState(false);
 
+    useEffect(() => {
+        const newErrors = []
+        if (post.length === 0 || post.length > 500) newErrors.push("Post must be between 1 and 500 characters")
+
+        setErrors(newErrors)
+        return () => {
+            setHasSubmitted(false)
+        }
+    }, [post])
+
     const handleSubmit = async (e) => {
         e.preventDefault()
 
@@ -36,6 +46,7 @@ export default function EditPostModal({ postToEdit }) {
                 const data = await res.json()
                 if (data && data.errors) setErrors(data.errors)
             })
+        setHasSubmitted(true)
     }
 
 
@@ -43,10 +54,10 @@ export default function EditPostModal({ postToEdit }) {
         <div className="post-modal-container">
             <h2>Edit a Post!</h2>
             <form onSubmit={handleSubmit} className="inputs-div">
-                <div>
+            <div className="post-errors-div">
                     {hasSubmitted && errors.length > 0 &&
                         errors.map((error, idx) => {
-                            <li key={idx}>{error}</li>
+                            return <li key={idx}>{error}</li>
                         })
                     }
                 </div>

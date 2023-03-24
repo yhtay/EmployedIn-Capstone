@@ -20,8 +20,8 @@ export default function CommentsComponent({ postId }) {
 
     return (
         <div>
-            <h3>Comments Component</h3>
-            <div style={{ paddingTop: "10px", paddingLeft: "15px" }}>{commentsByPostId(postId).map(comment => (
+            <h4>Comments Component</h4>
+            <div style={{ paddingLeft: "15px" }}>{commentsByPostId(postId).map(comment => (
                 <div key={comment.id} className="individual-comment-div">
                     <div>
                         {comment.comment}

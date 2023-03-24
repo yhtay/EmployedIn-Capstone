@@ -11,7 +11,7 @@
 }
 
 .sign-in-button {
-    width: 140px;
+    width: 200px;
     height: 30px;
     background-color: rgb(11,101,194);
     color: white;
@@ -25,7 +25,21 @@
 }
 
 .demo-user-button {
-    width: 140px;
+    width: 200px;
+    height: 30px;
+    background-color: rgb(11,101,194);
+    color: white;
+    border: none;
+    border-radius: 60px;
+    font: bolder
+}
+
+.demo-user-button:hover {
+    background-color: rgb(4, 78, 152);
+}
+
+.sign-up-button {
+    width: 200px;
     height: 30px;
     background-color: white;
     color: rgb(64,64,64);
@@ -34,6 +48,6 @@
     font: bolder
 }
 
-.demo-user-button:hover {
+.sign-up-button:hover {
     background-color: rgb(237, 237, 237);
 }

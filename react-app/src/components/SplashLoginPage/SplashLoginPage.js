@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { login } from "../../store/session";
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import PostsPage from '../Posts/PostComponent';
 import "./SplashLoginPage.css"
 import SplashPageImage from  "./SplashLoginImages/linkedin-splashpage-img.svg"
@@ -14,6 +14,7 @@ export default function SplashLoginPage() {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [errors, setErrors] = useState([]);
+	const history = useHistory();
 
 	if (sessionUser) return <Redirect to="/feed" />;
 
@@ -30,6 +31,7 @@ export default function SplashLoginPage() {
 		await dispatch(login('messi10@baca.com', 'Messi10'))
 		return <Redirect to="/feed" />
 	}
+
 
 	return (
 	<div>
@@ -73,6 +75,11 @@ export default function SplashLoginPage() {
 					>
 					Demo User
 				</button>
+				<button
+					className="sign-up-button"
+					onClick={() => history.push("/signup")}
+					>
+					New to LinkedIn? Join now</button>
 			</form>
 			<img
 				style={{ height: "500px", width: "500px" }}

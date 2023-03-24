@@ -18,6 +18,17 @@ export default function EditCommentModal({ postId, commentToEdit }) {
     const [errors, setErrors] = useState([]);
     const [hasSubmitted, setHasSubmitted] = useState(false);
 
+    useEffect(() => {
+        const newErrors = []
+        if (comment.length === 0 || comment.length > 30) newErrors.push("Comments must be between 1 and 30 characters")
+
+        setErrors(newErrors)
+        return () => {
+            setHasSubmitted(false)
+        }
+
+    }, [comment])
+
     const handleSubmit = async (e) => {
         e.preventDefault()
 
@@ -34,16 +45,17 @@ export default function EditCommentModal({ postId, commentToEdit }) {
                 const data = await res.json()
                 if (data && data.errors) setErrors(data.errors)
             })
+        setHasSubmitted(false)
     }
 
     return (
         <div className="post-modal-container">
             <h2>Edit a Post!</h2>
             <form onSubmit={handleSubmit} className="inputs-div">
-                <div>
+                <div className="post-errors-div">
                     {hasSubmitted && errors.length > 0 &&
                         errors.map((error, idx) => {
-                            <li key={idx}>{error}</li>
+                            return <li key={idx}>{error}</li>
                         })
                     }
                 </div>

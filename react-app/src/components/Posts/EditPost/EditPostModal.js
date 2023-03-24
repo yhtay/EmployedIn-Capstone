@@ -46,7 +46,7 @@ export default function EditPostModal({ postToEdit }) {
                 const data = await res.json()
                 if (data && data.errors) setErrors(data.errors)
             })
-        setHasSubmitted(true)
+        setHasSubmitted(false)
     }
 
 
@@ -54,7 +54,7 @@ export default function EditPostModal({ postToEdit }) {
         <div className="post-modal-container">
             <h2>Edit a Post!</h2>
             <form onSubmit={handleSubmit} className="inputs-div">
-            <div className="post-errors-div">
+                <div className="post-errors-div">
                     {hasSubmitted && errors.length > 0 &&
                         errors.map((error, idx) => {
                             return <li key={idx}>{error}</li>

@@ -89,10 +89,10 @@ def delete_post(id):
     post_to_delete = Post.query.get(id)
     # Check if post exist
     if not post_to_delete:
-        return {'errors': validation_errors_to_error_messages("Post Not Found")}, 404
+        return {'errors': validation_errors_to_error_messages("Post Not Found")}
     # Check if authorized
     if post_to_delete.user_id != current_user.id:
-        return {'errors': validation_errors_to_error_messages("Unauthroized to Delete")}, 403
+        return {'errors': validation_errors_to_error_messages("Unauthroized to Delete")}
 
     db.session.delete(post_to_delete)
     db.session.commit()

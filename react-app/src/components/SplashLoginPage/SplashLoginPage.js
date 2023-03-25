@@ -1,10 +1,13 @@
 import React, {useState, useEffect} from 'react'
 import { login } from "../../store/session";
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect, useHistory } from "react-router-dom";
+import { Redirect, useHistory, NavLink } from "react-router-dom";
 import PostsPage from '../Posts/PostComponent';
 import "./SplashLoginPage.css"
 import SplashPageImage from  "./SplashLoginImages/linkedin-splashpage-img.svg"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 
 
@@ -35,7 +38,6 @@ export default function SplashLoginPage() {
 
 	return (
 	<div>
-
 		<div className='splashpage-form-image-div'>
 			<form
 				className='splash-login-form'
@@ -90,7 +92,21 @@ export default function SplashLoginPage() {
 				alt="image"
 			/>
 		</div>
+		<div className='splashpage-footer'>
+			<div className='github-linkedin-icons-container'>
+				<div style={{ display: "flex", alignItems: "center", color: "rgb(74,129,131)", fontWeight: "800" }}>Developer </div>
+				<div>
+					<NavLink to="https://github.com/yhtay">
+						<FontAwesomeIcon icon={faGithub} className="github-linkedin-icons" />
+					</NavLink>
+				</div>
+				<div>
+					<NavLink to="https://www.linkedin.com/in/williamhtay/">
+						<FontAwesomeIcon icon={faLinkedin} className="github-linkedin-icons" />
+					</NavLink>
+				</div>
+			</div>
+		</div>
 	</div>
 	)
-
 }

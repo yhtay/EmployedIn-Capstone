@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     flex-direction: row;
-    margin-top: 120px;
+    margin-top: 100px;
 }
 
 .splash-login-form {
@@ -19,6 +19,7 @@
     font-size: 50px;
     font-weight: 200;
     width: 600px;
+    color: rgb(74,129,131);
 }
 
 .label-div {
@@ -36,7 +37,7 @@
     margin-top: 10px;
     width: 370px;
     height: 50px;
-    background-color: rgb(72,122,124);
+    background-color: rgb(107,184,174);
     color: white;
     border: none;
     border-radius: 60px;
@@ -44,14 +45,14 @@
 }
 
 .sign-in-button:hover {
-    background-color: rgb(60, 104, 105);
+    background-color: rgb(91, 160, 151);
 }
 
 .demo-user-button {
     margin-top: 10px;
     width: 370px;
     height: 50px;
-    background-color: rgb(72,122,124);
+    background-color: rgb(107,184,174);
     color: white;
     border: none;
     border-radius: 60px;
@@ -59,7 +60,7 @@
 }
 
 .demo-user-button:hover {
-    background-color: rgb(60, 104, 105);
+    background-color: rgb(91, 160, 151);
 }
 
 
@@ -77,4 +78,31 @@
 
 .sign-up-button:hover {
     background-color: rgb(198, 223, 223);
+}
+
+.splashpage-footer {
+    height: 35px;
+    width: 100%;
+    background-color: rgb(201, 227, 228);
+    position: fixed;
+    bottom: 0px;
+    z-index: 1;
+
+}
+
+.github-linkedin-icons-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 3px 0px;
+    margin-left: 120px;
+}
+
+.github-linkedin-icons {
+    font-size: 25px;
+    color: rgb(74,129,131);
+}
+
+.github-linkedin-icons:hover {
+    color: rgb(107,184,174);
 }

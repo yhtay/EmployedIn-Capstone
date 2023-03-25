@@ -15,7 +15,7 @@ function SplashPageNavigation({ isLoaded }){
 				<NavLink exact to="/">EmployedIn</NavLink>
 			</div>
 			<div className='login-signup-div'>
-				<NavLink className="navbar-login" exact to="/">Log In</NavLink>
+				{/* <NavLink className="navbar-login" exact to="/">Log In</NavLink> */}
 				<NavLink className="navbar-signup" to="/signup">Sign Up</NavLink>
 			{isLoaded && (
 				<li style={{ listStyle: "none" }}>

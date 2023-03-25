@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, NavLink } from "react-router-dom";
 import { signUp } from "../../store/session";
 import "./SignupFormPage.css"
 
@@ -36,14 +36,13 @@ function SignupFormPage() {
 
   return (
     <>
-      <div>
-
+      <div className="signup-page-container">
+        <div className="signup-title-div">Make the most of your professional life</div>
         <form className="sign-up-form" onSubmit={handleSubmit}>
-          <div style={{fontSize: "35px", width: "600px", alignSelf: "center"}}>Make the most of your professional life</div>
+          <div className="label-input-div">
           <ul style={{ color: "red", listStyle: "none", alignSelf: "center" }}>
             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
           </ul>
-          <div className="label-input-div">
             <div>First Name</div>
             <input
               type="text"
@@ -147,6 +146,9 @@ function SignupFormPage() {
           </div>
           <button className="sign-up" type="submit">Sign Up</button>
         </form>
+        <div style={{ margin: "15px" }}>Already on EmployedIn?
+          <NavLink style={{ textDecoration: "none", color: "rgb(74,129,131)" }} to="/"> Sign In</NavLink>
+        </div>
       </div>
     </>
   );

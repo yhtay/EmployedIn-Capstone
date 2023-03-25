@@ -4,7 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
-import Navigation from "./components/Navigation";
+import SplashPageNavigation from "./components/Navigation/SplashPageNavigation";
 import SplashLoginPage from "./components/SplashLoginPage/SplashLoginPage";
 import PostsPage from "./components/Posts/PostComponent";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
@@ -23,7 +23,7 @@ function App() {
 
   return (
     <>
-      <Navigation isLoaded={isLoaded} />
+      <SplashPageNavigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
           <Route exact path="/"><SplashLoginPage /></Route>

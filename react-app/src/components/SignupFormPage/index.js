@@ -89,7 +89,7 @@ function SignupFormPage() {
               <div>City</div>
               <input
                 type="text"
-                style={{ height: '30px', width: '200px'}}
+                style={{ height: '40px', width: '225px'}}
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
                 required
@@ -99,7 +99,7 @@ function SignupFormPage() {
               <div>State:</div>
                 <input
                   type="text"
-                  style={{ height: '30px', width: "100px"}}
+                  style={{ height: '40px', width: "125px"}}
                   value={state}
                   onChange={(e) => setState(e.target.value)}
                   required

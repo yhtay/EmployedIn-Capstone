@@ -5,15 +5,6 @@
     gap: 5px
 }
 
-
-
-.input-field {
-    height: 30px;
-    width: 300px;
-    padding: 0px 7px;
-    margin: 2px 0px;
-}
-
 .city-state-div {
     display: flex;
     gap: 5px
@@ -21,15 +12,15 @@
 
 .sign-up {
     margin-top: 10px;
-    width: 300px;
-    height: 40px;
-    background-color: rgb(11,101,194);
+    width: 370px;
+    height: 50px;
+    background-color: rgb(72,122,124);
     color: white;
     border: none;
     border-radius: 60px;
-    font: bolder
+    font-weight: 700;
 }
 
 .sign-up:hover {
-    background-color: rgb(4, 78, 152);
+    background-color: rgb(60, 104, 105);
 }

@@ -40,25 +40,27 @@ export default function SplashLoginPage() {
 			<form
 				className='splash-login-form'
 				onSubmit={handleSubmit}>
-				<h2>Welcome to your professional community</h2>
+				<div className='splashpage-title'>Welcome to your professional community</div>
 				<ul>
 				{errors.map((error, idx) => (
 					<li key={idx}>{error}</li>
 				))}
 			</ul>
 			<div>
-				<div>Email</div>
+				<div className='label-div'>Email</div>
 				<input
 					type="text"
+					className='input-field'
 					value={email}
 					onChange={(e) => setEmail(e.target.value)}
 					required
 				/>
 			</div>
 			<div>
-				<div>Password</div>
+				<div className='label-div'>Password</div>
 				<input
 					type="password"
+					className='input-field'
 					value={password}
 					onChange={(e) => setPassword(e.target.value)}
 					required
@@ -75,14 +77,15 @@ export default function SplashLoginPage() {
 					>
 					Demo User
 				</button>
+
 				<button
 					className="sign-up-button"
 					onClick={() => history.push("/signup")}
 					>
-					New to LinkedIn? Join now</button>
+					New to EmployedIn? Join now</button>
 			</form>
 			<img
-				style={{ height: "500px", width: "500px" }}
+				style={{ height: "700px", width: "800px" }}
 				src={SplashPageImage}
 				alt="image"
 			/>

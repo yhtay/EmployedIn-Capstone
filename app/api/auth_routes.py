@@ -74,7 +74,6 @@ def sign_up():
             country=form.data['country']
         )
 
-
         db.session.add(user)
         db.session.commit()
         login_user(user)

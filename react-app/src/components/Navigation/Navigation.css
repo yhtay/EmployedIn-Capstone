@@ -5,3 +5,62 @@
 .hidden {
   display: none;
 }
+
+.splash-page-navbar {
+  position: fixed;
+  top: 0px;
+  margin: 0px;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  z-index: 1;
+}
+
+.logo-div {
+  margin-left: 90px;
+}
+
+.login-signup-div {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  margin-right: 5%;
+
+}
+
+.navbar-login {
+  height: 50px;
+  width: 110px;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  color: rgb(52,52,52);
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.navbar-login:hover {
+  background-color: rgb(198, 223, 223);
+}
+
+.navbar-signup {
+  height: 50px;
+  width: 110px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgb(74,129,131);
+  border-radius: 30px;
+  color: rgb(74,129,131);
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.navbar-signup:hover {
+  background-color: rgb(201, 227, 228);
+}

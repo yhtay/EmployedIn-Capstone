@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { login } from "../../store/session";
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import PostsPage from '../Posts/PostComponent';
 import "./SplashLoginPage.css"
 import SplashPageImage from  "./SplashLoginImages/linkedin-splashpage-img.svg"
@@ -14,6 +14,7 @@ export default function SplashLoginPage() {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [errors, setErrors] = useState([]);
+	const history = useHistory();
 
 	if (sessionUser) return <Redirect to="/feed" />;
 
@@ -31,6 +32,7 @@ export default function SplashLoginPage() {
 		return <Redirect to="/feed" />
 	}
 
+
 	return (
 	<div>
 
@@ -38,25 +40,27 @@ export default function SplashLoginPage() {
 			<form
 				className='splash-login-form'
 				onSubmit={handleSubmit}>
-				<h2>Welcome to your professional community</h2>
+				<div className='splashpage-title'>Welcome to your professional community</div>
 				<ul>
 				{errors.map((error, idx) => (
 					<li key={idx}>{error}</li>
 				))}
 			</ul>
 			<div>
-				<div>Email</div>
+				<div className='label-div'>Email</div>
 				<input
 					type="text"
+					className='input-field'
 					value={email}
 					onChange={(e) => setEmail(e.target.value)}
 					required
 				/>
 			</div>
 			<div>
-				<div>Password</div>
+				<div className='label-div'>Password</div>
 				<input
 					type="password"
+					className='input-field'
 					value={password}
 					onChange={(e) => setPassword(e.target.value)}
 					required
@@ -73,9 +77,15 @@ export default function SplashLoginPage() {
 					>
 					Demo User
 				</button>
+
+				<button
+					className="sign-up-button"
+					onClick={() => history.push("/signup")}
+					>
+					New to EmployedIn? Join now</button>
 			</form>
 			<img
-				style={{ height: "500px", width: "500px" }}
+				style={{ height: "700px", width: "800px" }}
 				src={SplashPageImage}
 				alt="image"
 			/>

@@ -58,15 +58,28 @@ function ProfileButton() {
           />
         <div style={{ color: "rgb(74,129,131)"}}>Me <FontAwesomeIcon icon={faCaretDown} /></div>
       </div>
-      <ul className={ulClassName} ref={ulRef}>
+      <div className={ulClassName} ref={ulRef}>
         {user ? (
-          <>
-            <li>{user.username}</li>
-            <li>{user.email}</li>
-            <li>
-              <button onClick={handleLogout}>Log Out</button>
-            </li>
-          </>
+          <div className="user-dropdown-div">
+            <div className="user-dropdown-div-1">
+              <img
+                className="dropdown-profile-img"
+                src={user.profile_image}
+                alt="user_profile"
+                />
+              <div>
+                <div>{`${user.first_name} ${user.last_name}`}</div>
+                <div>{`${user.education}`}</div>
+
+              </div>
+            </div>
+            <hr style={{ border: "0.1px solid gray" }}></hr>
+            <div
+              className="dropdown-signout-div"
+              onClick={handleLogout}>
+              Sign Out
+            </div>
+          </div>
         ) : (
           <>
             <OpenModalButton
@@ -82,7 +95,7 @@ function ProfileButton() {
             />
           </>
         )}
-      </ul>
+      </div>
     </>
   );
 }

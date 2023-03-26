@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import logo from '../logos/EmployedInLogo.png'
 
 function SplashPageNavigation({ isLoaded }){
 	const sessionUser = useSelector(state => state.session.user);
@@ -12,7 +12,18 @@ function SplashPageNavigation({ isLoaded }){
 	return (
 		<div className='splash-page-navbar'>
 			<div className='logo-div'>
-				<NavLink exact to="/">EmployedIn</NavLink>
+				<NavLink exact to="/">
+					<img
+						style={{
+							marginTop: "7px",
+							height: "40px",
+							width: "auto",
+							borderRadius: "5px"
+						}}
+						src={logo}
+						alt="logo"
+					/>
+				</NavLink>
 			</div>
 			<div className='login-signup-div'>
 				{/* <NavLink className="navbar-login" exact to="/">Log In</NavLink> */}

@@ -1,5 +1,26 @@
+.profile-button-div {
+  margin-right: 10%;
+}
+
+.profile-image-me {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-profile-img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50px;
+  color: rgb(74,129,131);
+}
+
 .profile-dropdown {
   position: absolute;
+  list-style: none;
+  right: 5%;
+
 }
 
 .hidden {
@@ -9,7 +30,7 @@
 .splash-page-navbar {
   position: fixed;
   top: 0px;
-  margin: 0px;
+  margin: 0px 10px;
   width: 100%;
   padding: 10px;
   display: flex;

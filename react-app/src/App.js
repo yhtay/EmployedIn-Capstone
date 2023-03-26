@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
@@ -9,21 +9,24 @@ import SplashLoginPage from "./components/SplashLoginPage/SplashLoginPage";
 import PostsPage from "./components/Posts/PostComponent";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import { thunkGetAllComments } from "./store/comments";
+import UserNavBar from "./components/Navigation/UserNavBar";
+
 
 
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+  const sessionUser = useSelector(state => state.session.user)
+
   useEffect(() => {
     dispatch(authenticate()).then(() => setIsLoaded(true));
     dispatch(thunkGetAllComments())
-
   }, [dispatch]);
 
   return (
     <>
-      <SplashPageNavigation isLoaded={isLoaded} />
+      {sessionUser ? <UserNavBar isLoaded={isLoaded} /> :<SplashPageNavigation isLoaded={isLoaded} />}
       {isLoaded && (
         <Switch>
           <Route exact path="/"><SplashLoginPage /></Route>

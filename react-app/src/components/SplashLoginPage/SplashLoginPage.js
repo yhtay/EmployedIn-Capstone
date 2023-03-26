@@ -101,7 +101,7 @@ export default function SplashLoginPage() {
 					</NavLink>
 				</div>
 				<div>
-					<NavLink to="https://www.linkedin.com/in/williamhtay/">
+					<NavLink to={"https://www.linkedin.com/in/williamhtay/"}>
 						<FontAwesomeIcon icon={faLinkedin} className="github-linkedin-icons" />
 					</NavLink>
 				</div>

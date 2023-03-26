@@ -42,6 +42,7 @@
     border: none;
     border-radius: 60px;
     font-weight: 700;
+    cursor: pointer;
 }
 
 .sign-in-button:hover {
@@ -57,6 +58,7 @@
     border: none;
     border-radius: 60px;
     font-weight: 700;
+    cursor: pointer;
 }
 
 .demo-user-button:hover {
@@ -74,6 +76,7 @@
     border: 0.5px solid rgb(64,64,64);
     border-radius: 60px;
     font-weight: 700;
+    cursor: pointer;
 }
 
 .sign-up-button:hover {
@@ -101,6 +104,7 @@
 .github-linkedin-icons {
     font-size: 25px;
     color: rgb(74,129,131);
+    cursor: pointer;
 }
 
 .github-linkedin-icons:hover {

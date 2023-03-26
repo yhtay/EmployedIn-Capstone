@@ -18,6 +18,8 @@ export default function CommentsComponent({ postId }) {
         return filteredComments
     }
 
+
+
     return (
         <div>
             <h4>Comments Component</h4>

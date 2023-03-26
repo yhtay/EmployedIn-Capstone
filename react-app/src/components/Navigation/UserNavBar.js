@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import smallLogo from "../logos/smallLogo.png"
 
 
 function UserNavBar({ isLoaded }){
@@ -13,7 +14,18 @@ function UserNavBar({ isLoaded }){
 	return (
 		<div className='splash-page-navbar'>
 			<div className='logo-div'>
-				<NavLink exact to="/">EmployedInSmall Logo</NavLink>
+				<NavLink exact to="/">
+					<img
+						style={{
+							marginTop: "4px",
+							height: "40px",
+							width: "58px",
+							borderRadius: "5px"
+						}}
+						src={smallLogo}
+						alt="logo"
+					/>
+				</NavLink>
 			</div>
 			<div className="profile-button-div">
 			{isLoaded && (

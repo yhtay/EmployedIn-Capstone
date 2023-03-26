@@ -9,6 +9,7 @@ import SplashLoginPage from "./components/SplashLoginPage/SplashLoginPage";
 import PostsPage from "./components/Posts/PostComponent";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import { thunkGetAllComments } from "./store/comments";
+// import { thunkGetAllUsers } from "./store/session";
 import UserNavBar from "./components/Navigation/UserNavBar";
 
 
@@ -21,6 +22,7 @@ function App() {
 
   useEffect(() => {
     dispatch(authenticate()).then(() => setIsLoaded(true));
+    // dispatch(thunkGetAllUsers())
     dispatch(thunkGetAllComments())
   }, [dispatch]);
 

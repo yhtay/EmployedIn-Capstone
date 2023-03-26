@@ -1,15 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { thunkGetAllComments } from '../../store/comments';
+// import { thunkGetAllUsers } from '../../store/session';
 import smallLogo from "../logos/smallLogo.png"
 
 
 function UserNavBar({ isLoaded }){
-	const sessionUser = useSelector(state => state.session.user);
-	console.log("user in UserNav: ", sessionUser)
+
+	const sessionUser = useSelector(state => state.session.user)
+	// const dispatch = useDispatch();
+	// const allUsers = useSelector(state => state.allUsers)
+	// const allComments = useSelector(state => state.comments.allComments)
+
+	// useEffect(() => {
+	// 	dispatch(thunkGetAllUsers())
+    // 	dispatch(thunkGetAllComments())
+	// }, [dispatch])
+
+
 
 	return (
 		<div className='splash-page-navbar'>

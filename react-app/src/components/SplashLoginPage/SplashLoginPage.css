@@ -26,7 +26,7 @@
     font-size: 55px;
     font-weight: 200;
     width: 600px;
-    color: rgb(74,129,131);
+    color: rgb(143, 88, 73);
 }
 
 .label-div {
@@ -44,32 +44,34 @@
     margin-top: 10px;
     width: 370px;
     height: 50px;
-    background-color: rgb(107,184,174);
+    background-color: rgb(154,230,230);
     color: white;
     border: none;
     border-radius: 60px;
-    font-weight: 700;
+    font-weight: 600;
+    font-size: 15px;
     cursor: pointer;
 }
 
 .sign-in-button:hover {
-    background-color: rgb(91, 160, 151);
+    background-color: rgb(121,198,198);
 }
 
 .demo-user-button {
     margin-top: 10px;
     width: 370px;
     height: 50px;
-    background-color: rgb(107,184,174);
+    background-color: rgb(154,230,230);
     color: white;
     border: none;
     border-radius: 60px;
-    font-weight: 700;
+    font-weight: 600;
+    font-size: 15px;
     cursor: pointer;
 }
 
 .demo-user-button:hover {
-    background-color: rgb(91, 160, 151);
+    background-color: rgb(121,198,198);
 }
 
 
@@ -82,7 +84,8 @@
     color: rgb(52,52,52);
     border: 0.5px solid rgb(64,64,64);
     border-radius: 60px;
-    font-weight: 700;
+    font-weight: 600;
+    font-size: 15px;
     cursor: pointer;
 }
 
@@ -93,7 +96,7 @@
 .splashpage-footer {
     height: 35px;
     width: 100%;
-    background-color: rgb(201, 227, 228);
+    background-color: rgb(154,230,230);
     position: fixed;
     bottom: 0px;
     z-index: 1;

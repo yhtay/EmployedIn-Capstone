@@ -67,7 +67,7 @@ function ProfileButton() {
                 src={user.profile_image}
                 alt="user_profile"
                 />
-              <div>
+              <div style={{ gap: "2px"}}>
                 <div>{`${user.first_name} ${user.last_name}`}</div>
                 <div>{`${user.education}`}</div>
 

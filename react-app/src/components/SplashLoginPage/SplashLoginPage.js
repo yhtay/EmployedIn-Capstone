@@ -43,11 +43,11 @@ export default function SplashLoginPage() {
 				className='splash-login-form'
 				onSubmit={handleSubmit}>
 				<div className='splashpage-title'>Welcome to your professional community</div>
-				<ul>
-				{errors.map((error, idx) => (
-					<li key={idx}>{error}</li>
-				))}
-			</ul>
+				<div className='login-error-div'>
+					{errors.map((error, idx) => (
+						<li key={idx}>{error}</li>
+					))}
+				</div>
 			<div>
 				<div className='label-div'>Email</div>
 				<input
@@ -96,12 +96,12 @@ export default function SplashLoginPage() {
 			<div className='github-linkedin-icons-container'>
 				<div style={{ display: "flex", alignItems: "center", color: "rgb(74,129,131)", fontWeight: "800" }}>Developer </div>
 				<div>
-					<NavLink to="https://github.com/yhtay">
+					<NavLink to={{ pathname: "https://github.com/yhtay" }}>
 						<FontAwesomeIcon icon={faGithub} className="github-linkedin-icons" />
 					</NavLink>
 				</div>
 				<div>
-					<NavLink to={"https://www.linkedin.com/in/williamhtay/"}>
+					<NavLink to={{pathname: "https://www.linkedin.com/in/williamhtay/"}}>
 						<FontAwesomeIcon icon={faLinkedin} className="github-linkedin-icons" />
 					</NavLink>
 				</div>

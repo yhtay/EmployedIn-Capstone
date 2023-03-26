@@ -35,7 +35,12 @@ export default function PostsPage() {
     return(
         <div>
             <div className="all-posts-container">
-            <div>
+            <div className="create-post-div">
+            <img
+                className="post-profile-img"
+                src={user.profile_image}
+                alt="user_profile"
+                />
                 <CreatePostModalButton
                     buttonText="Start a post"
                     modalComponent={<CreatePostModal />}
@@ -44,22 +49,24 @@ export default function PostsPage() {
                 {
                     postsArr.map(post => (
                         <div key={post.id} className='individual-post-div'>
-                            <div>
-                                {user && Number(user.id) === Number(post.user_id) &&
-                                    <OpenModalButton
-                                        buttonText="Edit"
-                                        modalComponent={<EditPostModal postToEdit={post} />}
-                                    />
-                                }
-                                {user && Number(user.id) === Number(post.user_id) &&
-                                    <OpenModalButton
-                                        buttonText="Delete"
-                                        modalComponent={<DeletePostModal postToDelete={post} />}
-                                    />
-                                }
+                            <div className="post-and-buttons">
+                                <div>{post.post}</div>
+                                <div>
+                                    {user && Number(user.id) === Number(post.user_id) &&
+                                        <OpenModalButton
+                                            buttonText="Edit"
+                                            modalComponent={<EditPostModal postToEdit={post} />}
+                                        />
+                                    }
+                                    {user && Number(user.id) === Number(post.user_id) &&
+                                        <OpenModalButton
+                                            buttonText="Delete"
+                                            modalComponent={<DeletePostModal postToDelete={post} />}
+                                        />
+                                    }
+                                </div>
+                                {/* <div>{user.first_name}</div> */}
                             </div>
-                            {/* <div>{user.first_name}</div> */}
-                            <div>{post.post}</div>
                             <CommentsComponent postId={post.id} userId={user} />
                             <CreateComment postId={post.id} />
                         </div>

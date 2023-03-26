@@ -5,6 +5,8 @@ import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import logo from '../logos/EmployedInLogo.png'
+import logo2 from '../logos/EmployedInLogo2.png'
+
 
 function SplashPageNavigation({ isLoaded }){
 	const sessionUser = useSelector(state => state.session.user);
@@ -20,7 +22,7 @@ function SplashPageNavigation({ isLoaded }){
 							width: "auto",
 							borderRadius: "5px"
 						}}
-						src={logo}
+						src={logo2}
 						alt="logo"
 					/>
 				</NavLink>

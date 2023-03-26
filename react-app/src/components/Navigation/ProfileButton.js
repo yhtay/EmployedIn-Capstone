@@ -5,11 +5,13 @@ import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import { useHistory, Redirect } from "react-router-dom";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 
 function ProfileButton() {
   const dispatch = useDispatch();
   const user = useSelector(state => state.session.user)
+
 
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
@@ -48,9 +50,14 @@ function ProfileButton() {
 
   return (
     <>
-      <button onClick={openMenu}>
-        <i className="fas fa-user-circle" />
-      </button>
+      <div className="profile-image-me" onClick={openMenu}>
+        <img
+          className="navbar-profile-img"
+          src={user.profile_image}
+          alt="user_profile"
+          />
+        <div style={{ color: "rgb(74,129,131)"}}>Me <FontAwesomeIcon icon={faCaretDown} /></div>
+      </div>
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
           <>

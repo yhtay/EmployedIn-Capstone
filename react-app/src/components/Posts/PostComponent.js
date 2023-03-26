@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux"
 import thunk from "redux-thunk";
 import { thunkGetAllPosts } from "../../store/posts";
 import CreatePost from "./CreatePost/CreatePostModal";
-import "./PostComponent.css"
 import OpenModalButton from "../OpenModalButton";
+import CreatePostModalButton from "./CreatePost/CreatePostModalButton";
 import CreatePostModal from "./CreatePost/CreatePostModal";
 import EditPostModal from "./EditPost/EditPostModal";
 import DeletePostModal from "./DeletePost/DeletePostModal";
@@ -12,7 +12,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPencil } from '@fortawesome/free-solid-svg-icons'
 import CommentsComponent from "../Comments/CommentsComponent";
 import CreateComment from "../Comments/CreateComment/CreateComment";
-
+import "./PostComponent.css"
 
 
 
@@ -36,7 +36,7 @@ export default function PostsPage() {
         <div>
             <div className="all-posts-container">
             <div>
-                <OpenModalButton
+                <CreatePostModalButton
                     buttonText="Start a post"
                     modalComponent={<CreatePostModal />}
                 />

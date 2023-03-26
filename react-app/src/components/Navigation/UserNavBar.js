@@ -6,25 +6,24 @@ import './Navigation.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
-function SplashPageNavigation({ isLoaded }){
+function UserNavBar({ isLoaded }){
 	const sessionUser = useSelector(state => state.session.user);
+	console.log("user in UserNav: ", sessionUser)
 
 	return (
 		<div className='splash-page-navbar'>
 			<div className='logo-div'>
-				<NavLink exact to="/">EmployedIn</NavLink>
+				<NavLink exact to="/">EmployedInSmall Logo</NavLink>
 			</div>
-			<div className='login-signup-div'>
-				{/* <NavLink className="navbar-login" exact to="/">Log In</NavLink> */}
-				<NavLink className="navbar-signup" to="/signup">Sign Up</NavLink>
-			{/* {isLoaded && (
+			<div className="profile-button-div">
+			{isLoaded && (
 				<li style={{ listStyle: "none" }}>
 					<ProfileButton user={sessionUser} />
 				</li>
-			)}*/}
+			)}
 			</div>
 		</div>
 	);
 }
 
-export default SplashPageNavigation;
+export default UserNavBar;

@@ -1,7 +1,8 @@
-import { useModal } from '../../context/Modal';
-import { useState } from 'react';
+import { useModal } from "../../../context/Modal";
 
-function OpenModalButton({
+import "./CreatePostModal.css"
+
+export default function CreatePostModalButton({
   modalComponent, // component to render inside the modal
   buttonText, // text of the button that opens the modal
   onButtonClick, // optional: callback function that will be called once the button that opens the modal is clicked
@@ -17,8 +18,9 @@ function OpenModalButton({
 
 
   return (
-    <button onClick={onClick}>{buttonText}</button>
+    <button onClick={onClick}
+        className="create-post-button"
+        
+        >{buttonText}</button>
   );
 }
-
-export default OpenModalButton;

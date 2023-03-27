@@ -20,7 +20,7 @@ export default function DeletePostModalButton({
 
   return (
     <button onClick={onClick}
-        style={{ border: "none", backgroundColor: "white", cursor: "pointer" }}
+        style={{ border: "none", backgroundColor: "inherit", cursor: "pointer" }}
         >{<FontAwesomeIcon icon={faTrashCan} />} {` ${buttonText}`}</button>
   );
 }

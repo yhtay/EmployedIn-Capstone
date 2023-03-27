@@ -48,3 +48,25 @@
 .post-text-div {
     margin-top: 15px;
 }
+
+.ellipsis-icon-div {
+    position: "relatiive";
+    top: 2px;
+    right: 2px;
+}
+
+.dropdown-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    background-color: rgb(147, 157, 115);
+    position: relative;
+    top: 10px;
+    right: 10px;
+    z-index: 3;
+
+}
+
+.hidden {
+    display: none;
+}

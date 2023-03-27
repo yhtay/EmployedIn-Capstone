@@ -1,0 +1,26 @@
+.create-comment-input {
+    width: 479px;
+    height: 40px;
+    color: black;
+    border: 1px solid rgb(107,184,174);
+    border-radius: 60px;
+    cursor: pointer;
+    text-align: start;
+    padding-left: 15px;
+    font-size: 15px;
+}
+
+.create-comment-profile-img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50px;
+}
+
+.user-profile-comment-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 3px;
+    padding: 10px;
+}

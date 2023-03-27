@@ -1,8 +1,59 @@
-.individual-comment-div {
+.comments-by-post-div {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     border: 0.5px solid rgb(220, 220, 220);
     border-radius: 20px;
     margin: 5px;
     padding: 0px 10px;
+    width: 500px;
+
+}
+
+.comment-and-image-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3px;
+}
+
+.comment-user-profile-img {
+    height: 30px;
+    width: 30px;
+    border-radius: 50px;
+}
+
+.individual-comments-div {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.comment-ellipsis-icon{
+    position: relative;
+    top: 1px;
+    right: 5px;
+
+}
+
+.edit-delete-comment-dropdown {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+    background-color: rgb(201, 227, 228);
+    position: absolute;
+    top: 25px;
+    right: 5px;
+    height: fit-content;
+    width: 70px;
+    z-index: 3;
+    padding: 5px;
+    border-radius: 5px;
+
+}
+
+.hidden {
+    display: none;
 }

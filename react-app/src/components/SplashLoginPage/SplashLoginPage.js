@@ -35,7 +35,6 @@ export default function SplashLoginPage() {
 		return <Redirect to="/feed" />
 	}
 
-
 	return (
 	<div>
 		<div className='splashpage-form-image-div'>
@@ -96,12 +95,12 @@ export default function SplashLoginPage() {
 			<div className='github-linkedin-icons-container'>
 				<div style={{ display: "flex", alignItems: "center", color: "rgb(74,129,131)", fontWeight: "800" }}>Developer </div>
 				<div>
-					<Link to={{ pathname:"https://github.com/yhtay"}}>
+					<Link to={{ pathname:"https://github.com/yhtay"}} target="_blank" rel="noreferrer">
 						<FontAwesomeIcon icon={faGithub} className="github-linkedin-icons" />
 					</Link>
 				</div>
 				<div>
-					<Link to={{ pathname:"https://www.linkedin.com/in/williamhtay/"}}>
+					<Link to={{ pathname:"https://www.linkedin.com/in/williamhtay/"}} target="_blank" rel="noreferrer">
 						<FontAwesomeIcon icon={faLinkedin} className="github-linkedin-icons" />
 					</Link>
 				</div>

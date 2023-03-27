@@ -75,3 +75,16 @@
 .hidden {
     display: none;
 }
+
+.comment-icon-div {
+    cursor: pointer;
+}
+
+.comment-dropdown-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+    background-color: rgb(201, 227, 228);
+    position: relative;
+}

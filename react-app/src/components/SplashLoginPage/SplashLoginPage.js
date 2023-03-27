@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { login } from "../../store/session";
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect, useHistory, NavLink } from "react-router-dom";
+import { Redirect, useHistory, Link } from "react-router-dom";
 import PostsPage from '../Posts/PostComponent';
 import "./SplashLoginPage.css"
 import SplashPageImage from  "./SplashLoginImages/linkedin-splashpage-img.svg"
@@ -96,14 +96,14 @@ export default function SplashLoginPage() {
 			<div className='github-linkedin-icons-container'>
 				<div style={{ display: "flex", alignItems: "center", color: "rgb(74,129,131)", fontWeight: "800" }}>Developer </div>
 				<div>
-					<NavLink to={{ pathname: "https://github.com/yhtay" }}>
+					<Link to={{ pathname:"https://github.com/yhtay"}}>
 						<FontAwesomeIcon icon={faGithub} className="github-linkedin-icons" />
-					</NavLink>
+					</Link>
 				</div>
 				<div>
-					<NavLink to={{pathname: "https://www.linkedin.com/in/williamhtay/"}}>
+					<Link to={{ pathname:"https://www.linkedin.com/in/williamhtay/"}}>
 						<FontAwesomeIcon icon={faLinkedin} className="github-linkedin-icons" />
-					</NavLink>
+					</Link>
 				</div>
 			</div>
 		</div>

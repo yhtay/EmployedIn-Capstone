@@ -7,10 +7,13 @@ import CreatePost from "./CreatePost/CreatePostModal";
 import OpenModalButton from "../OpenModalButton";
 import CreatePostModalButton from "./CreatePost/CreatePostModalButton";
 import CreatePostModal from "./CreatePost/CreatePostModal";
+import EditPostModalButton from "./EditPost/EditPostModalButton";
 import EditPostModal from "./EditPost/EditPostModal";
+import DeletePostModalButton from "./DeletePost/DeletePostModalButton";
 import DeletePostModal from "./DeletePost/DeletePostModal";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPencil } from '@fortawesome/free-solid-svg-icons'
+import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
+import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import CommentsComponent from "../Comments/CommentsComponent";
 import CreateComment from "../Comments/CreateComment/CreateComment";
 import "./PostComponent.css"
@@ -23,6 +26,9 @@ export default function PostsPage() {
     const allPosts = useSelector(state => state.posts.allPosts)
     const user = useSelector(state => state.session.user)
     const allUsers = useSelector(state => state.session.allUsers)
+    const [dropDownVisible, setDropDownVisible] = useState(false)
+
+    const [userPost, setUserPost] = useState(null);
 
 
     useEffect(() => {
@@ -33,6 +39,11 @@ export default function PostsPage() {
     if (!allUsers) return null
     if (!allPosts) return null
     if (!user) return null
+
+    const toggleDropDown = () => {
+        setDropDownVisible(!dropDownVisible)
+    }
+
 
 
 
@@ -72,17 +83,31 @@ export default function PostsPage() {
                                 </div>
                                 <div>
                                     {user && Number(user.id) === Number(post.user_id) &&
-                                        <OpenModalButton
-                                            buttonText="Edit"
-                                            modalComponent={<EditPostModal postToEdit={post} />}
-                                        />
+                                        <>
+                                            <div onClick={() => {
+                                                setDropDownVisible(!dropDownVisible)
+                                                setUserPost(post.id)
+
+                                            }}
+                                                className="ellipsis-icon-div"
+                                                >
+                                                <FontAwesomeIcon icon={faEllipsis} />
+                                            </div>
+                                            {userPost === post.id &&
+                                                <div className={ dropDownVisible ? "dropdown-container" : "hidden"}>
+                                                    <EditPostModalButton
+                                                        buttonText="Edit"
+                                                        modalComponent={<EditPostModal postToEdit={post} />}
+                                                    />
+                                                    <DeletePostModalButton
+                                                        buttonText="Delete"
+                                                        modalComponent={<DeletePostModal postToDelete={post} />}
+                                                    />
+                                                </div>
+                                            }
+                                        </>
                                     }
-                                    {user && Number(user.id) === Number(post.user_id) &&
-                                        <OpenModalButton
-                                            buttonText="Delete"
-                                            modalComponent={<DeletePostModal postToDelete={post} />}
-                                        />
-                                    }
+
                                 </div>
                                 {/* <div>{user.first_name}</div> */}
                             </div>

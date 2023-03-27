@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux"
-import OpenModalButton from "../OpenModalButton";
+import DeleteCommentModalButton from "./DeleteComment/DeleteCommentModalButton";
 import DeleteCommentModal from "./DeleteComment/DeleteCommentModal";
+import EditCommentModalButton from "./EditComment/EditCommentModalButton";
 import EditCommentModal from "./EditComment/EditCommentModal";
 import "./CommentsComponent.css"
-import EditPostModal from "../Posts/EditPost/EditPostModal";
 
 
 export default function CommentsComponent({ postId }) {
@@ -30,11 +30,11 @@ export default function CommentsComponent({ postId }) {
                     </div>
                     { user && Number(user.id) === Number(comment.user_id) &&
                     <div>
-                        <OpenModalButton
+                        <EditCommentModalButton
                             buttonText="Edit"
                             modalComponent={<EditCommentModal postId={postId} commentToEdit={comment} />}
                             />
-                        <OpenModalButton
+                        <DeleteCommentModalButton
                             buttonText="Delete"
                             modalComponent={<DeleteCommentModal postId={postId} commentId={comment.id} />}
                             />

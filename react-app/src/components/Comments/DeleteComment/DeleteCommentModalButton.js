@@ -1,9 +1,9 @@
 import { useModal } from "../../../context/Modal";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
 
-import "./CreatePostModal.css"
-
-export default function CreatePostModalButton({
+export default function DeleteCommentModalButton({
   modalComponent, // component to render inside the modal
   buttonText, // text of the button that opens the modal
   onButtonClick, // optional: callback function that will be called once the button that opens the modal is clicked
@@ -20,7 +20,7 @@ export default function CreatePostModalButton({
 
   return (
     <button onClick={onClick}
-        className="create-post-button"
-        >{buttonText}</button>
+        style={{ border: "none", backgroundColor: "white", cursor: "pointer" }}
+        >{<FontAwesomeIcon icon={faTrashCan} />} {` ${buttonText}`}</button>
   );
 }

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router-dom";
 import { useModal } from "../../../context/Modal";
 import { thunkCreateComment, thunkGetAllComments } from "../../../store/comments";
+import "./CreateComment.css"
 
 
 export default function CreateComment({ postId }) {
@@ -10,6 +11,9 @@ export default function CreateComment({ postId }) {
     const dispatch = useDispatch();
     // const history = useHistory()
     const { closeModal } = useModal()
+
+    const user = useSelector(state => state.session.user)
+    const allUsers = useSelector(state => state.session.allUsers)
 
     const [comment, setComment] = useState("");
     const [errors, setErrors] = useState([]);
@@ -58,12 +62,22 @@ export default function CreateComment({ postId }) {
                                 key={idx}>{error}</li>
                         ))
                 }
-                <input
-                    placeholder="Add a comment..."
-                    value={comment}
-                    onChange={e => setComment(e.target.value)}
-                />
-                <button type="submit">Submit</button>
+                <div className="user-profile-comment-input">
+                    <img
+                    className="create-comment-profile-img"
+                    src={user.profile_image}
+                    alt="user_profile"
+                    />
+                    <input
+                        placeholder="Add a comment..."
+                        className="create-comment-input"
+                        value={comment}
+                        onChange={e => setComment(e.target.value)}
+                    />
+                </div>
+                <button
+                style={{ display: "none"}}
+                type="submit">Submit</button>
             </form>
         </div>
     )

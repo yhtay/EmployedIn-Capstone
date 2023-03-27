@@ -112,20 +112,20 @@ export default function PostsPage() {
                                                 }}
                                                 className="ellipsis-icon-div"
                                                 >
-                                                <FontAwesomeIcon icon={faEllipsis} style={{ position: "absolute", top: "5px", right: "5px"}} />
+                                                <FontAwesomeIcon icon={faEllipsis} style={{ position: "relative", top: "5px", right: "5px"}} />
+                                                {userPost === post.id &&
+                                                    <div className={ dropDownVisible ? "dropdown-container" : "hidden"}>
+                                                        <EditPostModalButton
+                                                            buttonText="Edit"
+                                                            modalComponent={<EditPostModal postToEdit={post} />}
+                                                        />
+                                                        <DeletePostModalButton
+                                                            buttonText="Delete"
+                                                            modalComponent={<DeletePostModal postToDelete={post} />}
+                                                        />
+                                                    </div>
+                                                }
                                             </div>
-                                            {userPost === post.id &&
-                                                <div className={ dropDownVisible ? "dropdown-container" : "hidden"}>
-                                                    <EditPostModalButton
-                                                        buttonText="Edit"
-                                                        modalComponent={<EditPostModal postToEdit={post} />}
-                                                    />
-                                                    <DeletePostModalButton
-                                                        buttonText="Delete"
-                                                        modalComponent={<DeletePostModal postToDelete={post} />}
-                                                    />
-                                                </div>
-                                            }
                                         </>
                                     }
                                 </div>
@@ -138,7 +138,7 @@ export default function PostsPage() {
                                 }}
                                 className="comment-icon-div"
                             >
-                                <FontAwesomeIcon icon={faComment} /> {" Comment"}
+                                <div><FontAwesomeIcon icon={faComment} /> {"  Comment"}</div>
                             </div>
                                 {commentPost === post.id && (
                                     <div className={ commentDropDownVisible ? "comment-dropdown-container" : "hidden"}>

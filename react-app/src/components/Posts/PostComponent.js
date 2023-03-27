@@ -44,9 +44,6 @@ export default function PostsPage() {
         setDropDownVisible(!dropDownVisible)
     }
 
-
-
-
     const postsArr = Object.values(allPosts)
 
     return(
@@ -87,11 +84,10 @@ export default function PostsPage() {
                                             <div onClick={() => {
                                                 setDropDownVisible(!dropDownVisible)
                                                 setUserPost(post.id)
-
                                             }}
                                                 className="ellipsis-icon-div"
                                                 >
-                                                <FontAwesomeIcon icon={faEllipsis} />
+                                                <FontAwesomeIcon icon={faEllipsis} style={{ position: "absolute", top: "5px", right: "5px"}} />
                                             </div>
                                             {userPost === post.id &&
                                                 <div className={ dropDownVisible ? "dropdown-container" : "hidden"}>
@@ -107,7 +103,6 @@ export default function PostsPage() {
                                             }
                                         </>
                                     }
-
                                 </div>
                                 {/* <div>{user.first_name}</div> */}
                             </div>

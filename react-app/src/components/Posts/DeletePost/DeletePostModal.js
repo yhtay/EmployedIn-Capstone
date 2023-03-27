@@ -21,7 +21,7 @@ export default function DeletePostModal({ postToDelete }) {
     }
 
     return (
-        <div className='delete-post-modal'>
+        <div >
             <h2 style={{ textAlign: "center"}}>Delete Post?</h2>
             <div style={{ textAlign: "center", margin: "30px 0px"}}>
                 Are you sure you want to permanently remove this post from EmployedIn?

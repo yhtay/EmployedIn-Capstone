@@ -68,7 +68,7 @@ export default function PostsPage() {
         setDropDownVisible(!dropDownVisible)
     }
 
-    const postsArr = Object.values(allPosts)
+    const postsArr = Object.values(allPosts).reverse()
 
     return(
         <div>

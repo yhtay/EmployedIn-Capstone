@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import thunk from "redux-thunk";
 import { thunkGetAllPosts } from "../../store/posts";
@@ -14,9 +14,11 @@ import DeletePostModal from "./DeletePost/DeletePostModal";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
+import { faComment } from "@fortawesome/free-solid-svg-icons";
 import CommentsComponent from "../Comments/CommentsComponent";
 import CreateComment from "../Comments/CreateComment/CreateComment";
 import "./PostComponent.css"
+
 
 
 
@@ -27,9 +29,31 @@ export default function PostsPage() {
     const user = useSelector(state => state.session.user)
     const allUsers = useSelector(state => state.session.allUsers)
     const [dropDownVisible, setDropDownVisible] = useState(false)
-
     const [userPost, setUserPost] = useState(null);
+    const [commentDropDownVisible, setCommentDropDownVisible] = useState(false);
+    const [commentPost, setCommentPost] = useState(null)
 
+    const closeDropDown = (e) => {
+        if (dropDownVisible &&
+            e.target.closest(".dropdown-container") === null &&
+            e.target.closest(".ellipsis-icon-div") === null
+            ) {
+                setDropDownVisible(false);
+        }
+        if (commentDropDownVisible &&
+            e.target.closest(".comment-dropdown-container") === null &&
+            e.target.closest(".comment-icon-div") === null
+            ) {
+                setCommentDropDownVisible(false)
+            }
+    };
+
+    useEffect(() => {
+        document.addEventListener("click", closeDropDown);
+        return () => {
+            document.removeEventListener("click", closeDropDown);
+        };
+    }, [dropDownVisible, commentDropDownVisible]);
 
     useEffect(() => {
         dispatch(thunkGetAllPosts())
@@ -81,10 +105,11 @@ export default function PostsPage() {
                                 <div>
                                     {user && Number(user.id) === Number(post.user_id) &&
                                         <>
-                                            <div onClick={() => {
-                                                setDropDownVisible(!dropDownVisible)
-                                                setUserPost(post.id)
-                                            }}
+                                            <div
+                                                onClick={() => {
+                                                    setDropDownVisible(!dropDownVisible)
+                                                    setUserPost(post.id)
+                                                }}
                                                 className="ellipsis-icon-div"
                                                 >
                                                 <FontAwesomeIcon icon={faEllipsis} style={{ position: "absolute", top: "5px", right: "5px"}} />
@@ -106,8 +131,21 @@ export default function PostsPage() {
                                 </div>
                                 {/* <div>{user.first_name}</div> */}
                             </div>
-                            <CommentsComponent postId={post.id} userId={user} />
-                            <CreateComment postId={post.id} />
+                            <div
+                                onClick={() => {
+                                    setCommentDropDownVisible(!commentDropDownVisible);
+                                    setCommentPost(post.id);
+                                }}
+                                className="comment-icon-div"
+                            >
+                                <FontAwesomeIcon icon={faComment} /> {" Comment"}
+                            </div>
+                                {commentPost === post.id && (
+                                    <div className={ commentDropDownVisible ? "comment-dropdown-container" : "hidden"}>
+                                        <CreateComment postId={post.id} />
+                                        <CommentsComponent postId={post.id} userId={user} />
+                                    </div>
+                                )}
                         </div>
                     ))
                 }

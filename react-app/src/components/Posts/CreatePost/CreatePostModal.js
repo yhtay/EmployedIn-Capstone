@@ -68,6 +68,7 @@ export default function CreatePostModal() {
                 <button
                     className="post-button"
                     type="submit"
+                    style={{cursor: "pointer"}}
                     // disabled={errors.length > 0 ? true : false}
                     >
                     Post

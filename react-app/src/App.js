@@ -8,6 +8,7 @@ import SplashPageNavigation from "./components/Navigation/SplashPageNavigation";
 import SplashLoginPage from "./components/SplashLoginPage/SplashLoginPage";
 import PostsPage from "./components/Posts/PostComponent";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
+import UserProfilePage from "./components/profile/UserProfilePage";
 import { thunkGetAllComments } from "./store/comments";
 // import { thunkGetAllUsers } from "./store/session";
 import UserNavBar from "./components/Navigation/UserNavBar";
@@ -35,6 +36,7 @@ function App() {
           <Route path="/login" ><LoginFormPage /></Route>
           <Route path="/signup"><SignupFormPage /></Route>
           <Route path="/feed"><PostsPage /></Route>
+          <Route path="/user/:userId"><UserProfilePage /></Route>
         </Switch>
       )}
     </>

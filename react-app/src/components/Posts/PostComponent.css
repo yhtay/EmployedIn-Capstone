@@ -1,9 +1,29 @@
+.mainpage-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 15px
+}
+
+.profile-card-div {
+    margin-top: 100px;
+    display: flex;
+    justify-content: flex-start;
+
+}
+
+.tech-div {
+    margin-top: 100px;
+    display: flex;
+    justify-content: flex-start;
+}
+
 .all-posts-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 650px;
-    margin-left: 450px;
+
     margin-top: 100px;
 }
 

@@ -22,7 +22,7 @@ export default function CreateComment({ postId }) {
     useEffect(() => {
         const newErrors = []
 
-        if (comment.length < 1 || comment.length > 30) newErrors.push("Comments must be between 1 and 30 characters")
+        if (comment.length < 1 || comment.length > 100) newErrors.push("Comments must be between 1 and 100 characters")
 
         setErrors(newErrors)
         return () => {

@@ -40,7 +40,7 @@ function SignupFormPage() {
         <div className="signup-title-div">Make the most of your professional life</div>
         <form className="sign-up-form" onSubmit={handleSubmit}>
           <div className="label-input-div">
-          <ul style={{ color: "red", listStyle: "none", alignSelf: "center" }}>
+          <ul style={{ color: "red", listStyle: "none", alignSelf: "center", fontSize: "12px" }}>
             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
           </ul>
             <div>First Name</div>
@@ -65,7 +65,7 @@ function SignupFormPage() {
           <div className="label-input-div">
             <div>Email</div>
             <input
-              type="text"
+              type="email"
               className="input-field"
               value={email}
               onChange={(e) => setEmail(e.target.value)}

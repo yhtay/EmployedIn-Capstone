@@ -71,7 +71,10 @@ export default function PostsPage() {
     const postsArr = Object.values(allPosts).reverse()
 
     return(
-        <div>
+        <div className="mainpage-container">
+            <div className="profile-card-div">
+                "Profile Card"
+            </div>
             <div className="all-posts-container">
             <div className="create-post-div">
             <img
@@ -149,6 +152,9 @@ export default function PostsPage() {
                         </div>
                     ))
                 }
+            </div>
+            <div className="tech-div">
+                Tech Utilized!
             </div>
         </div>
     )

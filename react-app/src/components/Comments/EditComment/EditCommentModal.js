@@ -67,6 +67,7 @@ export default function EditCommentModal({ postId, commentToEdit }) {
                 />
                 <button
                     className="post-button"
+                    style={{ cursor: "pointer"}}
                     type="submit"
                     // disabled={errors.length > 0 ? true : false}
                     >

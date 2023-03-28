@@ -68,12 +68,15 @@
 
 .post-text-div {
     margin-top: 15px;
+    max-width: 600px;
+    overflow-wrap: break-word;
 }
 
 .ellipsis-icon-div {
     position: relative;
     top: 2px;
     right: 2px;
+    cursor: pointer;
 }
 
 .dropdown-container {

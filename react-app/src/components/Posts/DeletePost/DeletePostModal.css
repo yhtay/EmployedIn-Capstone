@@ -24,6 +24,7 @@
     background-color: rgb(78, 78, 78);
     color: rgb(255, 255, 255);
     font-weight: 900;
+    cursor: pointer;
 }
 
 .confirm-button {
@@ -34,5 +35,5 @@
     background-color: rgb(11,101,194);
     color: black;
     font-weight: 900;
-
+    cursor: pointer;
 }

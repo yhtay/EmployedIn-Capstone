@@ -15,7 +15,8 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    gap: 3px;
+    gap: 5px;
+
 }
 
 .comment-user-profile-img {
@@ -25,16 +26,19 @@
 }
 
 .individual-comments-div {
-    display: flex;
+    display: block;
     justify-content: space-between;
     position: relative;
+    max-width: 450px;
+    overflow-wrap: break-word;
 }
+
 
 .comment-ellipsis-icon{
     position: relative;
     top: 1px;
-    right: 5px;
-
+    right: 3px;
+    cursor: pointer;
 }
 
 .edit-delete-comment-dropdown {

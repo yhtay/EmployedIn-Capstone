@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux"
-
+import { NavLink } from "react-router-dom"
 import background from "../ProfileCard/graphic.jpeg"
 import "./profile.css"
 
@@ -7,7 +7,7 @@ import "./profile.css"
 export default function UserProfileCard () {
 
     const user = useSelector(state => state.session.user)
-    console.log("user: ", user)
+
 
     return (
         <div className="user-profile-card">
@@ -24,9 +24,9 @@ export default function UserProfileCard () {
                 alt="profile-image"
                 />
             <div className="profile-card-bottom-div">
-                <div className="profile-card-user-name">
+                <NavLink to={`/user/${user.id}`} className="profile-card-user-name" user={user}>
                     {`${user.first_name} ${user.last_name}`}
-                </div>
+                </NavLink>
                 <div className="profile-card-user-education">
                     {`${user.education}`}
                 </div>

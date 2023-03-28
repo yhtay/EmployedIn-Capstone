@@ -38,13 +38,13 @@ def user_exists(form, field):
 class SignUpForm(FlaskForm):
     # username = StringField(
     #     'username', validators=[DataRequired(), username_exists])
-    first_name = StringField('First Name', validators=[DataRequired(), Length(max=6, message="Max of 15 characters")])
-    last_name = StringField('Last Name', validators=[DataRequired(), Length(max=6, message="Max of 15 characters")])
+    first_name = StringField('First Name', validators=[DataRequired(), Length(max=15, message="First name 15 characters max")])
+    last_name = StringField('Last Name', validators=[DataRequired(), Length(max=15, message="Last name 15 characters max")])
     email = StringField('Email', validators=[DataRequired(), user_exists])
-    password = StringField('Password', validators=[DataRequired(), Length(min=6, message="Mininum 6 characters")])
+    password = StringField('Password', validators=[DataRequired(), Length(min=6, message="Password must be 6 characters min")])
     education = StringField('Education', validators=[DataRequired()])
     # education_icon = StringField('Education Icon')
     profile_image = StringField('Profile Image Url')
     city = StringField("City", validators=[DataRequired()])
-    state = StringField("State", validators=[DataRequired(), Length(max=4, message="Max 4 characters")])
+    state = StringField("State", validators=[DataRequired(), Length(max=4, message="State can have 4 characters max")])
     country = StringField("Country", validators=[DataRequired()])

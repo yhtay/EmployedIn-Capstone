@@ -26,7 +26,7 @@
 .profile-card-user-img {
     height: 72px;
     width: 72px;
-    border-radius: 50px;
+    border-radius: 50%;
     position: absolute;
     top: 10%;
     left: 35%;
@@ -45,10 +45,112 @@
     font-size: 16px;
     font-weight: 600;
     color: rgb(52,52,52);
+    text-decoration: none;
+}
+
+.profile-card-user-name:hover {
+    text-decoration: underline;
 }
 
 .profile-card-user-education {
     font-size: 12px;
     font-weight: 400;
     color: rgb(52,52,52);
+}
+
+.profile-page-main-container {
+    position: relative;
+    display: flex;
+    margin-top: 100px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.profile-page-user-info-container {
+    height: 385px;
+    width: 770px;
+    border: 0.5px solid black;
+    border-radius: 8px;
+    position: relative;
+}
+
+.background-image-div {
+    height: 200px;
+    width: inherit;
+    border-radius: inherit;
+}
+
+.profile-page-user-img {
+    height: 152px;
+    width: 152px;
+    border-radius: 50%;
+    position: absolute;
+    top: 21%;
+    left: 2.5%;
+    border: 4.5px solid white
+}
+
+.user-info-bottom-div {
+    margin-top: 47px;
+    padding: 23px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-info-left-div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.user-info-name {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.user-education {
+    font-size: 16px;
+    font-weight: 400;
+    color: rgb(0, 0, 0, 0.9)
+}
+
+.user-location {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgb(113, 113, 113);
+    margin-top: 3px;
+}
+
+.user-info-right-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.education-icon-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+}
+
+.education-icon-img {
+    height: 32px;
+    width: 32px;
+}
+
+.user-education {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.skills-container {
+    height: 385px;
+    width: 770px;
+    border: 0.5px solid black;
+    border-radius: 8px;
+    position: relative;
 }

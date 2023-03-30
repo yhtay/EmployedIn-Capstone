@@ -17,7 +17,7 @@ import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import { faComment } from "@fortawesome/free-solid-svg-icons";
 import CommentsComponent from "../Comments/CommentsComponent";
 import CreateComment from "../Comments/CreateComment/CreateComment";
-import UserProfileCard from "../profile/UserProfileCard";
+import UserProfileCard from "../Profile/UserProfileCard";
 import "./PostComponent.css"
 
 
@@ -74,7 +74,7 @@ export default function PostsPage() {
     return(
         <div className="mainpage-container">
             <div className="profile-card-div">
-                <UserProfileCard />
+                <UserProfileCard user={user}/>
             </div>
             <div className="all-posts-container">
             <div className="create-post-div">

@@ -3,6 +3,7 @@ from .db import db, environment, SCHEMA, add_prefix_for_prod
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from datetime import datetime
+from .user_skill import users_skills
 
 
 class User(db.Model, UserMixin):
@@ -29,7 +30,11 @@ class User(db.Model, UserMixin):
     # Relationships
     posts = db.relationship("Post", back_populates='user', cascade="all, delete")
     comments = db.relationship("Comment", back_populates='user', cascade="all, delete")
-
+    skills = db.relationship("Skill",
+        secondary=users_skills,
+        back_populates='users',
+        cascade="all, delete"
+        )
 
     @property
     def password(self):
@@ -50,6 +55,10 @@ class User(db.Model, UserMixin):
     def get_comments(self):
         return [ comment.to_dict() for comment in self.comments ]
 
+    @property
+    def get_skills(self):
+        return [ skill.to_dict() for skill in self.skills ]
+
     def to_dict(self):
         return {
             'id': self.id,
@@ -65,4 +74,5 @@ class User(db.Model, UserMixin):
             'country': self.country,
             # 'posts': self.get_posts,
             # 'comments': self.get_comments
+            # 'skills': self.get_skills
         }

@@ -50,7 +50,7 @@ def seed_users():
     zidane = User(
         first_name = 'Zinedine', last_name = 'Zidane', password = 'Zizou10', email = 'zidane@rmfc.com', education = "AS Cannes",
         education_icon = 'https://upload.wikimedia.org/wikipedia/en/f/ff/AS_Cannes_logo.png',
-        profile_image = 'https://en.wikipedia.org/wiki/Zinedine_Zidane#/media/File:Zinedine_Zidane_by_Tasnim_03.jpg',
+        profile_image = 'http://t0.gstatic.com/licensed-image?q=tbn:ANd9GcRc8pgs3u3_54lhccpdACKWjwAFLtQNcRSqY4tGVkJObBZrr6kaMtPmzwmyhzhDlWnnG1OpLGcriOz5D6Q',
         city = 'Madrid', state = 'Madrid', country = 'Spain'
     )
     henry = User(

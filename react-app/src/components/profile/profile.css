@@ -154,3 +154,15 @@
     border-radius: 8px;
     position: relative;
 }
+
+.skills-top-div {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.skills-add-edit {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px
+}

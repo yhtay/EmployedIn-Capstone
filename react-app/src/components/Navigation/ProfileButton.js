@@ -43,6 +43,7 @@ function ProfileButton() {
     history.push('/')
 
 
+
   };
 
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
@@ -76,7 +77,7 @@ function ProfileButton() {
             <hr style={{ border: "0.1px solid gray" }}></hr>
             <div
               className="dropdown-signout-div"
-              onClick={handleLogout}>
+              onClick={e => handleLogout(e)}>
               Sign Out
             </div>
           </div>

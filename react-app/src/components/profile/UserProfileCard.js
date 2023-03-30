@@ -4,10 +4,7 @@ import background from "../ProfileCard/graphic.jpeg"
 import "./profile.css"
 
 
-export default function UserProfileCard () {
-
-    const user = useSelector(state => state.session.user)
-
+export default function UserProfileCard ({ user }) {
 
     return (
         <div className="user-profile-card">
@@ -24,7 +21,7 @@ export default function UserProfileCard () {
                 alt="profile-image"
                 />
             <div className="profile-card-bottom-div">
-                <NavLink to={`/user/${user.id}`} className="profile-card-user-name" user={user}>
+                <NavLink to={`/user/${user.id}`} className="profile-card-user-name">
                     {`${user.first_name} ${user.last_name}`}
                 </NavLink>
                 <div className="profile-card-user-education">

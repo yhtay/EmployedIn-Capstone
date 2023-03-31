@@ -10,7 +10,7 @@ import PostsPage from "./components/Posts/PostComponent";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import { thunkGetAllComments } from "./store/comments";
 import UserNavBar from "./components/Navigation/UserNavBar";
-import UserProfilePage from "./components/Profile/UserProfilePage";
+import UserProfilePage from "./components/profile/UserProfilePage";
 
 
 

@@ -5,6 +5,7 @@ import AddSkillModal from "./AddSkill/AddSkillModal";
 import AddSkillModalButton from "./AddSkill/AddSkillModalButton";
 import DeleteSkillModal from "./DeleteSkill/DeleteSkillModal";
 import DeleteSkillModalButton from "./DeleteSkill/DeleteSkillModalButton";
+import "./SkillsComponent.css"
 
 
 export default function SkillsComponent({ selectedUser, sessionUser }) {
@@ -23,7 +24,7 @@ export default function SkillsComponent({ selectedUser, sessionUser }) {
     return (
         <div className="skills-container">
             <div className="skills-top-div">
-                <div>Skills</div>
+                <div className="skills-title">Skills</div>
                     {sessionUser && +sessionUser.id === +selectedUser.id &&
                         <div className="skills-add-edit">
                             <AddSkillModalButton
@@ -37,17 +38,18 @@ export default function SkillsComponent({ selectedUser, sessionUser }) {
                         </div>
                     }
             </div>
-            <div className="skills-middle-div" style={{ overflow: "auto" }}>
+            <div className="skills-middle-div">
             {
-                userSkills.map(skill => (
-                    <div key={skill.id}>
+                userSkills.length > 0 ? (userSkills.map(skill => (
+                    <div className="individual-skill-list-div" key={skill.id}>
                         <div>{skill.skill}</div>
                     </div>
-                ))
+                )))
+                : (<div>Show off your skills here</div>)
             }
             </div>
             <div className="skills-bottom-div">
-                
+
             </div>
         </div>
     )

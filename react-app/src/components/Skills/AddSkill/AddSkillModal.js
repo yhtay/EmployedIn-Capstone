@@ -33,13 +33,14 @@ export default function AddSkillModal({ selectedUser }) {
             <h2>Add Skill</h2>
             <div className="new-skill-div">
                 {
-                    newSkills.map(skill => (
+                    newSkills.length === 0 ? (<div>User have all the skills</div>)
+                    : (newSkills.map(skill => (
                         <div
                             key={skill.id}
                             className="individual-skill-div"
                             onClick={e => handleClick(e, skill.id)}
                         >{skill.skill}</div>
-                    ))
+                    )))
                 }
             </div>
         </div>

@@ -116,6 +116,7 @@
     display: flex;
     justify-content: center;
     border-radius: 5px;
+    margin: 2px;
 }
 
 .comment-icon-div:hover {

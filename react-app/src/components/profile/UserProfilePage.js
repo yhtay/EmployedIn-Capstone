@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux"
 import { useParams } from "react-router-dom"
+import SkillsComponent from "../Skills/SkillsComponent";
 import { thunkGetAllUsers } from "../../store/session";
+
 
 
 import background from "../ProfileCard/graphic.jpeg"
@@ -10,6 +12,7 @@ export default function UserProfilePage () {
 
     const { userId } = useParams();
     const dispatch = useDispatch();
+    const sessionUser = useSelector(state => state.session.user)
     const allUsers = useSelector(state => state.session.allUsers)
 
     useEffect(() => {
@@ -17,6 +20,7 @@ export default function UserProfilePage () {
     }, [dispatch])
 
     if (!allUsers) return null
+    if (!sessionUser) return null
 
     const selectedUser = allUsers[userId]
 
@@ -57,21 +61,7 @@ export default function UserProfilePage () {
                     </div>
                 </div>
             </div>
-            <div className="skills-container">
-                <div className="skills-top-div">
-                    <div>Skills</div>
-                    <div className="skills-add-edit">
-                        <div>+</div>
-                        <div>edit</div>
-                    </div>
-                </div>
-                <div className="skills-middle-div">
-
-                </div>
-                <div className="skills-bottom-div">
-
-                </div>
-            </div>
+            <SkillsComponent selectedUser={selectedUser} sessionUser={sessionUser} />
         </div>
     )
 }

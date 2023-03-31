@@ -18,7 +18,7 @@ import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import { faComment } from "@fortawesome/free-solid-svg-icons";
 import CommentsComponent from "../Comments/CommentsComponent";
 import CreateComment from "../Comments/CreateComment/CreateComment";
-import UserProfileCard from "../Profile/UserProfileCard";
+import UserProfileCard from "../profile/UserProfileCard";
 import "./PostComponent.css"
 
 

@@ -1,4 +1,7 @@
 import { useModal } from "../../../context/Modal";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import "./AddSkillModal.css"
 
 
 export default function AddSkillModalButton({
@@ -18,6 +21,7 @@ export default function AddSkillModalButton({
 
     return (
       <button onClick={onClick}
-          >{buttonText}</button>
+        className="add-skill-button"
+          ><FontAwesomeIcon icon={faPlus} /></button>
     );
   }

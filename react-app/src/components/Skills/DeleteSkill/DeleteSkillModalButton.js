@@ -1,4 +1,7 @@
 import { useModal } from "../../../context/Modal";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMinus } from "@fortawesome/free-solid-svg-icons";
+
 
 
 export default function DeleteSkillModalButton({
@@ -18,6 +21,7 @@ export default function DeleteSkillModalButton({
 
     return (
       <button onClick={onClick}
-          >{buttonText}</button>
+        className="delete-skill-button"
+        ><FontAwesomeIcon icon={faMinus} /></button>
     );
   }

@@ -28,3 +28,17 @@
     background-color: rgb(199, 199, 199);
     padding: 4.25px 14.25px;
 }
+
+.add-skill-button {
+    padding: 5px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.add-skill-button:hover {
+    background-color: rgb(201,227,227);
+}

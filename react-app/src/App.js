@@ -8,10 +8,9 @@ import SplashPageNavigation from "./components/Navigation/SplashPageNavigation";
 import SplashLoginPage from "./components/SplashLoginPage/SplashLoginPage";
 import PostsPage from "./components/Posts/PostComponent";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
-import UserProfilePage from "./components/Profile/UserProfilePage";
 import { thunkGetAllComments } from "./store/comments";
-// import { thunkGetAllUsers } from "./store/session";
 import UserNavBar from "./components/Navigation/UserNavBar";
+import UserProfilePage from "./components/Profile/UserProfilePage";
 
 
 

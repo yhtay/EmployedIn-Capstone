@@ -3,10 +3,9 @@ import { useSelector, useDispatch } from "react-redux"
 import { useParams } from "react-router-dom"
 import SkillsComponent from "../Skills/SkillsComponent";
 import { thunkGetAllUsers } from "../../store/session";
-
-
-
 import background from "../ProfileCard/graphic.jpeg"
+
+
 
 export default function UserProfilePage () {
 

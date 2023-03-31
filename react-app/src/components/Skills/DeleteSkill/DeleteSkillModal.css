@@ -13,3 +13,17 @@
     justify-content: flex-start;
     overflow: auto;
 }
+
+.delete-skill-button {
+    padding: 5px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.delete-skill-button:hover {
+    background-color: rgb(201,227,227);
+}

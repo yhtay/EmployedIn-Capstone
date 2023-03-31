@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react"
 import { useDispatch, useSelector } from "react-redux"
+import { NavLink } from "react-router-dom";
 import thunk from "redux-thunk";
 import { thunkGetAllPosts } from "../../store/posts";
 import { thunkGetAllUsers } from "../../store/session";
@@ -93,17 +94,25 @@ export default function PostsPage() {
                         <div key={post.id} className='individual-post-div'>
                             <div className="post-and-buttons">
                                 <div>
-                                    <div className="post-profile-image-div">
-                                        <img
-                                            className="post-profile-img"
-                                            src={allUsers[post.user_id]["profile_image"]}
-                                            alt="profile-image"
-                                            />
-                                        <div>
-                                            <div>{`${allUsers[post.user_id]["first_name"]} ${allUsers[post.user_id]["last_name"]}`}</div>
-                                            <div>{allUsers[post.user_id]["education"]}</div>
+                                    <NavLink
+                                        className='post-profile-image-navlink'
+                                        to={`/user/${post.user_id}`}>
+                                        <div className="post-profile-image-div">
+                                            <img
+                                                className="post-profile-img"
+                                                src={allUsers[post.user_id]["profile_image"]}
+                                                alt="profile-image"
+                                                />
+                                            <div>
+                                            <div style={{ fontSize: "14px", fontWeight: "600"}}>
+                                                <span className="name-hover">
+                                                    {`${allUsers[post.user_id]["first_name"]} ${allUsers[post.user_id]["last_name"]}`}
+                                                </span>
+                                            </div>
+                                                <div style={{ fontSize: "12px", fontWeight: "400" }}>{allUsers[post.user_id]["education"]}</div>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </NavLink>
                                     <div className="post-text-div">{post.post}</div>
                                 </div>
                                 <div>

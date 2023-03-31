@@ -58,6 +58,15 @@
     justify-content: space-between;
 }
 
+.post-profile-image-navlink {
+    text-decoration: none;
+    color: black;
+}
+
+.name-hover:hover {
+    text-decoration: underline;
+}
+
 .post-profile-image-div {
     display: flex;
     flex-direction: row;

@@ -37,7 +37,7 @@ def seed_users():
     )
     xavi = User(
         first_name = 'Xavi', last_name = 'Hernández', password = 'Xavixxx', email = 'xavix@baca.com', education = 'La Masia de Can Planes',
-        education_icon = 'https://www.designfootball.com/images/joomgallery/originals/football_crests_8/sporting_cp_20170529_1131302771.png',
+        education_icon = 'https://img.icons8.com/color/512/barcelona-fc.png',
         profile_image = 'http://t3.gstatic.com/licensed-image?q=tbn:ANd9GcSlm70-v-AAaScCug9X1fJEVTgORl8UygPgozuves9JUUfLhTnQyE38fbcN0m2wi6D6MPo4Gg60F7YqrO4',
         city = 'Madrid', state = 'Madrid', country = 'Spain'
     )
@@ -55,7 +55,7 @@ def seed_users():
     )
     henry = User(
         first_name = 'Thierry', last_name = 'Henry', password = 'Henry14', email = 'henry14@arsenal.com', education = "AS Monaco",
-        education_icon = 'https://en.wikipedia.org/wiki/AS_Monaco_FC#/media/File:LogoASMonacoFC2021.svg',
+        education_icon = 'https://p77-sign-va.tiktokcdn.com/tos-maliva-avt-0068/0ebe81cf67c5e80cb1e6ac7b69cd9a50~c5_720x720.jpeg?x-expires=1680267600&x-signature=FYqS8JuLnw648Aen0SntWWA40gk%3D',
         profile_image = 'https://tmssl.akamaized.net/images/foto/galerie/thierry-henry-1417524348-3352.jpg',
         city = 'Fontvieille', state = 'Monaco', country = 'France'
     )

@@ -47,7 +47,7 @@ def get_skills_by_user_id(id):
 
 # Get skills new skills for the user
 @user_routes.route('/<int:id>/new_skills')
-# @login_required
+@login_required
 def get_new_skills(id):
     """
     Query for all skills then query for user's skills then filter out new skills for user
@@ -55,19 +55,20 @@ def get_new_skills(id):
     all_skills = Skill.query.all()
     user_skills = User.query.get(id).skills
     if not user_skills:
-        return {'error': 'User not found'}, 404
+        return [ skill.to_dict() for skill in all_skills ]
 
     new_skills = [ skill.to_dict() for skill in all_skills if skill not in user_skills ]
     return new_skills
 
 
-# Create skills based on user id
+# Add skills based on user id
 @user_routes.route('/<int:user_id>/skills/<int:skill_id>', methods=['POST'])
-# @login_required
+@login_required
 def add_skill_to_user(user_id, skill_id):
     """
-    Create skill on user for logged in user
+    Add skill on user for logged in user
     """
+    print("=======> ", type(user_id))
     skill_to_add = users_skills.insert().values(
         user_id = user_id,
         skill_id = skill_id
@@ -80,7 +81,7 @@ def add_skill_to_user(user_id, skill_id):
 
 # Delete skills based on user id
 @user_routes.route('/<int:user_id>/skills/<int:skill_id>', methods=['DELETE'])
-# @login.required
+@login_required
 def delete_skill_on_user(user_id, skill_id):
     skill_to_delete = users_skills.delete().where(
         (users_skills.c.user_id == user_id) &

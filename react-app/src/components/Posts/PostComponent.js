@@ -12,6 +12,8 @@ import EditPostModalButton from "./EditPost/EditPostModalButton";
 import EditPostModal from "./EditPost/EditPostModal";
 import DeletePostModalButton from "./DeletePost/DeletePostModalButton";
 import DeletePostModal from "./DeletePost/DeletePostModal";
+import FeaturesComponent from "./FeaturesComponent";
+import TechDiv from "./TechDiv";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
@@ -163,8 +165,9 @@ export default function PostsPage() {
                     ))
                 }
             </div>
-            <div className="tech-div">
-                Tech Utilized!
+            <div className="mainpage-right-div">
+                <FeaturesComponent />
+                <TechDiv />
             </div>
         </div>
     )

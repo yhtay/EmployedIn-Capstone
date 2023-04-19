@@ -20,7 +20,7 @@
 .profile-background-img {
     width: inherit;
     height: inherit;
-    border-radius: inherit;
+    border-radius: 10px 10px 0 0;
 }
 
 .profile-card-user-img {

@@ -60,7 +60,7 @@ export default function UserProfilePage () {
                     </div>
                 </div>
             </div>
-            <SkillsComponent selectedUser={selectedUser} sessionUser={sessionUser} />
+            <SkillsComponent selectedUser={selectedUser} sessionUser={sessionUser} userId={+userId} />
         </div>
     )
 }

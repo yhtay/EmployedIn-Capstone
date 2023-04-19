@@ -35,6 +35,8 @@ class User(db.Model, UserMixin):
         back_populates='users',
         cascade="all, delete"
         )
+    give_endorsements = db.relationship("Endorsement", back_populates='endorser', cascade="all, delete")
+    recieve_endorsements = db.relationship("Endorsement", back_populates='endorsee', cascade="all, delete")
 
     @property
     def password(self):

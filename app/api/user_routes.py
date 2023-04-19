@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import User, Skill, users_skills, db
+from app.models import User, Skill, users_skills, db, Endorsement
 from app.forms import SkillForm
 
 
@@ -45,7 +45,7 @@ def get_skills_by_user_id(id):
     skills = [ skill.to_dict() for skill in user_by_id.skills]
     return jsonify(skills), 200
 
-# Get skills new skills for the user
+# Get new skills for the user
 @user_routes.route('/<int:id>/new_skills')
 @login_required
 def get_new_skills(id):
@@ -91,3 +91,43 @@ def delete_skill_on_user(user_id, skill_id):
     db.session.commit()
 
     return User.query.get(user_id).to_dict()
+
+# GET user endorsements
+@user_routes.route('/<int:user_id>/skills/endorsements')
+# @login_required
+def get_user_endorsements(user_id):
+    user_skills = User.query.get(user_id).skills
+    endorsements = Endorsement.query.filter_by(endorsee_id = user_id).all()
+
+    return [ endorsement.to_dict() for endorsement in endorsements]
+
+
+
+# ADD endorsement to skill
+@user_routes.route('/<int:endorsee_id>/skills/<int:skill_id>/endorser/<int:endorser_id>', methods=['POST'])
+@login_required
+def add_endorsement_to_skill(endorsee_id, skill_id, endorser_id):
+    # res = request.get_json()
+    new_endorsement = Endorsement(
+        skill_id = skill_id,
+        endorser_id = endorser_id,
+        endorsee_id = endorsee_id
+    )
+    db.session.add(new_endorsement)
+    db.session.commit()
+    return new_endorsement.to_dict()
+
+#DELETE endorsement to skill
+@user_routes.route('/<int:endorsee_id>/skills/<int:skill_id>/endorser/<int:endorser_id>', methods=['DELETE'])
+@login_required
+def remove_endorsement_from_skill(endorsee_id, skill_id, endorser_id):
+    endorsement = Endorsement.query.filter_by(skill_id=skill_id, endorser_id=endorser_id, endorsee_id=endorsee_id).first()
+    if endorsement:
+        endorsement_id = endorsement.id
+        db.session.delete(endorsement)
+        db.session.commit()
+
+        return {
+            'endorsement_id' : endorsement_id,
+            'message': "Successfully deleted the endorsement"
+            }, 200

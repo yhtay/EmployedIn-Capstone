@@ -4,12 +4,14 @@ import session from './session'
 import postsReducer from './posts';
 import commentsReducer from './comments';
 import skillsReducer from './skills';
+import endorsementsReducer from './endorsements';
 
 const rootReducer = combineReducers({
   session,
   posts: postsReducer,
   comments: commentsReducer,
-  skills: skillsReducer
+  skills: skillsReducer,
+  endorsements: endorsementsReducer
 });
 
 

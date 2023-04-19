@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: c9a08e966492
+Revision ID: 987050e17eb3
 Revises:
-Create Date: 2023-03-31 10:43:36.467926
+Create Date: 2023-04-19 12:59:49.269059
 
 """
 from alembic import op
@@ -12,9 +12,8 @@ import os
 environment = os.getenv("FLASK_ENV")
 SCHEMA = os.environ.get("SCHEMA")
 
-
 # revision identifiers, used by Alembic.
-revision = 'c9a08e966492'
+revision = '987050e17eb3'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -29,6 +28,7 @@ def upgrade():
     sa.Column('updated_at', sa.DateTime(), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
+
     if environment == "production":
         op.execute(f"ALTER TABLE skills SET SCHEMA {SCHEMA};")
 
@@ -49,8 +49,22 @@ def upgrade():
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('email')
     )
+
     if environment == "production":
         op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
+
+    op.create_table('endorsements',
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('skill_id', sa.Integer(), nullable=False),
+    sa.Column('endorser_id', sa.Integer(), nullable=False),
+    sa.Column('endorsee_id', sa.Integer(), nullable=False),
+    sa.ForeignKeyConstraint(['endorser_id'], ['users.id'], ondelete='CASCADE'),
+    sa.ForeignKeyConstraint(['skill_id'], ['skills.id'], ondelete='CASCADE'),
+    sa.PrimaryKeyConstraint('id')
+    )
+
+    if environment == "production":
+        op.execute(f"ALTER TABLE endorsements SET SCHEMA {SCHEMA};")
 
     op.create_table('posts',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -62,6 +76,7 @@ def upgrade():
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ondelete='CASCADE'),
     sa.PrimaryKeyConstraint('id')
     )
+
     if environment == "production":
         op.execute(f"ALTER TABLE posts SET SCHEMA {SCHEMA};")
 
@@ -72,6 +87,7 @@ def upgrade():
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('user_id', 'skill_id')
     )
+
     if environment == "production":
         op.execute(f"ALTER TABLE users_skills SET SCHEMA {SCHEMA};")
 
@@ -86,6 +102,7 @@ def upgrade():
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ondelete='CASCADE'),
     sa.PrimaryKeyConstraint('id')
     )
+
     if environment == "production":
         op.execute(f"ALTER TABLE comments SET SCHEMA {SCHEMA};")
     # ### end Alembic commands ###
@@ -96,6 +113,7 @@ def downgrade():
     op.drop_table('comments')
     op.drop_table('users_skills')
     op.drop_table('posts')
+    op.drop_table('endorsements')
     op.drop_table('users')
     op.drop_table('skills')
     # ### end Alembic commands ###

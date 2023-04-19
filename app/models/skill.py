@@ -20,6 +20,7 @@ class Skill(db.Model):
         secondary=users_skills,
         back_populates='skills'
         )
+    endorsements = db.relationship('Endorsement', back_populates='skill')
 
     def to_dict(self):
         return {

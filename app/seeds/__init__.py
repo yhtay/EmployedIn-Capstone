@@ -4,6 +4,7 @@ from .posts import seed_posts, undo_posts
 from .skills import seed_skills, undo_skills
 from .users_skills import seed_users_skills, undo_users_skills
 from .comments import seed_comments, undo_comments
+from .endorsements import seed_endorsements, undo_endorsements
 
 from app.models.db import db, environment, SCHEMA
 
@@ -21,6 +22,7 @@ def seed():
         # the schema name (see comment in users.py undo_users function).
         # Make sure to add all your other model's undo functions below
         undo_users_skills()
+        undo_endorsements()
         undo_skills()
         undo_comments()
         undo_posts()
@@ -29,6 +31,7 @@ def seed():
     seed_posts()
     seed_comments()
     seed_skills()
+    seed_endorsements()
     seed_users_skills()
     # Add other seed functions here
 
@@ -37,6 +40,7 @@ def seed():
 @seed_commands.command('undo')
 def undo():
     undo_users_skills()
+    undo_endorsements()
     undo_skills()
     undo_comments()
     undo_posts()

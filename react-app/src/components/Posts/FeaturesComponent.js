@@ -11,11 +11,12 @@ export default function FeaturesComponent() {
                 <li className="li-features">Posts</li>
                 <li className="li-features">Comments</li>
                 <li className="li-features">Skills</li>
+                <li className="li-features">Endorsements</li>
             </ul>
             <ul><span>
                     Upcoming Features
                 </span>
-                <li className="li-features">Endorsements</li>
+
                 <li className="li-features">Direct Messaging</li>
             </ul>
 
